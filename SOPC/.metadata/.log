@@ -1,0 +1,463 @@
+!SESSION 2020-12-12 13:24:05.977 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.ui 4 4 2020-12-12 13:24:30.541
+!MESSAGE Unable to find view with id: com.altera.sbtgui.launch.hardware.ByteStreamConsoleView, when creating perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-12-12 13:28:14.062
+!MESSAGE Indexed 'test_sopc_bsp' (78 sources, 57 headers) in 0.88 sec: 920 declarations; 2,186 references; 113 unresolved inclusions; 5 syntax errors; 193 unresolved names (5.85%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-12-12 13:28:21.454
+!MESSAGE Indexed 'test_sopc' (1 sources, 13 headers) in 0.02 sec: 1 declarations; 1 references; 14 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+!SESSION 2020-12-12 13:36:30.298 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.cdt.launch 4 150 2020-12-12 13:36:49.064
+!MESSAGE Error starting process.
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc\test_sopc.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:297)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:88)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:89)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.exec(LocalCDILaunchDelegate.java:381)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.runLocalApplication(LocalCDILaunchDelegate.java:96)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.launch(LocalCDILaunchDelegate.java:70)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:853)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:702)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:923)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1126)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 150 2020-12-12 13:36:49.064
+!MESSAGE Cannot run program "C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc\test_sopc.elf": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc\test_sopc.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:297)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:88)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:89)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.exec(LocalCDILaunchDelegate.java:381)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.runLocalApplication(LocalCDILaunchDelegate.java:96)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.launch(LocalCDILaunchDelegate.java:70)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:853)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:702)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:923)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1126)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2020-12-12 13:46:16.019 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.ltk.ui.refactoring 4 10000 2020-12-12 13:47:10.421
+!MESSAGE Internal Error
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:799)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:331)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:130)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Could not delete '/test_sopc/system'.
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:270)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:352)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteProject(ResourceTree.java:387)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteProject(ResourceTree.java:837)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1944)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:786)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:331)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:130)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Problems encountered while deleting files.
+Contains: Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc\system.
+Contains: Could not delete 'C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc'.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2020-12-12 13:47:10.422
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2020-12-12 13:47:10.422
+!MESSAGE Could not delete '/test_sopc/system'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:270)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:352)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteProject(ResourceTree.java:387)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteProject(ResourceTree.java:837)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1944)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:786)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:331)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:130)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Problems encountered while deleting files.
+Contains: Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc\system.
+!SUBENTRY 3 org.eclipse.core.resources 4 273 2020-12-12 13:47:10.422
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2020-12-12 13:47:10.422
+!MESSAGE Problems encountered while deleting files.
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2020-12-12 13:47:10.422
+!MESSAGE Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc\system.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2020-12-12 13:47:10.422
+!MESSAGE Could not delete 'C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc'.
+
+!ENTRY org.eclipse.core.resources 4 273 2020-12-12 13:47:10.425
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2020-12-12 13:47:10.425
+!MESSAGE Could not delete '/test_sopc/system'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:270)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:352)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteProject(ResourceTree.java:387)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteProject(ResourceTree.java:837)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1944)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:786)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:331)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:130)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Problems encountered while deleting files.
+Contains: Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc\system.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2020-12-12 13:47:10.425
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2020-12-12 13:47:10.425
+!MESSAGE Problems encountered while deleting files.
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2020-12-12 13:47:10.425
+!MESSAGE Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc\system.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2020-12-12 13:47:10.426
+!MESSAGE Could not delete 'C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc'.
+
+!ENTRY org.eclipse.ltk.ui.refactoring 4 10000 2020-12-12 13:47:31.037
+!MESSAGE Internal Error
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:799)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:331)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:130)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Could not delete 'C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc_bsp\Makefile'.
+org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteProject(ResourceTree.java:384)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteProject(ResourceTree.java:837)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1944)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:786)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:331)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:130)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc_bsp\Makefile.
+Contains: Could not delete 'C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc_bsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2020-12-12 13:47:31.037
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2020-12-12 13:47:31.037
+!MESSAGE Could not delete 'C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc_bsp\Makefile'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteProject(ResourceTree.java:384)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteProject(ResourceTree.java:837)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1944)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:786)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:331)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:130)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc_bsp\Makefile.
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2020-12-12 13:47:31.037
+!MESSAGE Problems encountered while deleting files.
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2020-12-12 13:47:31.037
+!MESSAGE Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc_bsp\Makefile.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2020-12-12 13:47:31.037
+!MESSAGE Could not delete 'C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc_bsp'.
+
+!ENTRY org.eclipse.core.resources 4 273 2020-12-12 13:47:31.038
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2020-12-12 13:47:31.038
+!MESSAGE Could not delete 'C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc_bsp\Makefile'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteProject(ResourceTree.java:384)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteProject(ResourceTree.java:837)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1944)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:786)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:331)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:130)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc_bsp\Makefile.
+!SUBENTRY 2 org.eclipse.core.filesystem 4 273 2020-12-12 13:47:31.038
+!MESSAGE Problems encountered while deleting files.
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2020-12-12 13:47:31.038
+!MESSAGE Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc_bsp\Makefile.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2020-12-12 13:47:31.038
+!MESSAGE Could not delete 'C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc_bsp'.
+
+!ENTRY org.eclipse.ltk.ui.refactoring 4 10000 2020-12-12 13:47:50.971
+!MESSAGE Internal Error
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:799)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:331)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:130)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Could not delete '/test_sopc/system'.
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:270)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:352)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteProject(ResourceTree.java:387)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteProject(ResourceTree.java:837)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1944)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:786)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:331)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:130)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Problems encountered while deleting files.
+Contains: Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc\system.
+Contains: Could not delete 'C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc'.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2020-12-12 13:47:50.971
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2020-12-12 13:47:50.971
+!MESSAGE Could not delete '/test_sopc/system'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:270)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:352)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteProject(ResourceTree.java:387)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteProject(ResourceTree.java:837)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1944)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:786)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:331)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:130)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Problems encountered while deleting files.
+Contains: Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc\system.
+!SUBENTRY 3 org.eclipse.core.resources 4 273 2020-12-12 13:47:50.971
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2020-12-12 13:47:50.971
+!MESSAGE Problems encountered while deleting files.
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2020-12-12 13:47:50.971
+!MESSAGE Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc\system.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2020-12-12 13:47:50.971
+!MESSAGE Could not delete 'C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc'.
+
+!ENTRY org.eclipse.core.resources 4 273 2020-12-12 13:47:50.972
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2020-12-12 13:47:50.972
+!MESSAGE Could not delete '/test_sopc/system'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:270)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:352)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteProject(ResourceTree.java:387)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteProject(ResourceTree.java:837)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1944)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:786)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:331)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:130)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation$1.run(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:306)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:92)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:218)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1975)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:87)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Problems encountered while deleting files.
+Contains: Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc\system.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2020-12-12 13:47:50.972
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2020-12-12 13:47:50.972
+!MESSAGE Problems encountered while deleting files.
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2020-12-12 13:47:50.972
+!MESSAGE Could not delete: C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc\system.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2020-12-12 13:47:50.972
+!MESSAGE Could not delete 'C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc'.
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-12-12 13:49:20.175
+!MESSAGE Indexed 'test_sopc_bsp' (78 sources, 57 headers) in 0.89 sec: 920 declarations; 2,186 references; 113 unresolved inclusions; 5 syntax errors; 193 unresolved names (5.85%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-12-12 13:49:23.352
+!MESSAGE Indexed 'test_sopc' (1 sources, 13 headers) in 0.02 sec: 1 declarations; 1 references; 14 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+!SESSION 2020-12-12 14:05:31.678 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-12 14:06:49.397
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11028 --id=0x0 --timestamp=1607800060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-12 14:06:55.293
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11028 --id=0x0 --timestamp=1607800060 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+!SESSION 2020-12-12 14:10:23.506 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-12-12 14:11:27.477
+!MESSAGE Indexed 'test_sopc_bsp' (78 sources, 57 headers) in 0.94 sec: 920 declarations; 2,186 references; 113 unresolved inclusions; 5 syntax errors; 193 unresolved names (5.85%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-12-12 14:11:32.301
+!MESSAGE Indexed 'test_sopc' (1 sources, 13 headers) in 0.02 sec: 1 declarations; 1 references; 14 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-12 14:13:24.727
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11028 --id=0x0 --timestamp=1607800060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-12 14:13:29.814
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11028 --id=0x0 --timestamp=1607800060 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-12 14:24:18.495
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-12 14:24:20.468
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11028 --id=0x0 --timestamp=1607800060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-12 14:24:26.338
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11028 --id=0x0 --timestamp=1607800060 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+!SESSION 2020-12-12 15:44:33.737 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-12-12 15:44:39.892
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2020-12-12 15:48:27.146 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-12 16:06:29.614
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607809167]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-12 16:06:33.458
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607809167 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-12 16:07:29.444
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-12 16:07:30.869
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607809167]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-12 16:07:34.626
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607809167 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
