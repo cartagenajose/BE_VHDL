@@ -1,0 +1,77 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk_50M'
+Slack : -73.633
+TNS   : -559.835
+
+Type  : Slow 1200mV 85C Model Setup 'in_freq_anemometre'
+Slack : -5.057
+TNS   : -129.129
+
+Type  : Slow 1200mV 85C Model Hold 'in_freq_anemometre'
+Slack : 0.480
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk_50M'
+Slack : 0.569
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'in_freq_anemometre'
+Slack : -3.000
+TNS   : -55.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_50M'
+Slack : -3.000
+TNS   : -37.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk_50M'
+Slack : -65.526
+TNS   : -495.818
+
+Type  : Slow 1200mV 0C Model Setup 'in_freq_anemometre'
+Slack : -4.436
+TNS   : -110.892
+
+Type  : Slow 1200mV 0C Model Hold 'in_freq_anemometre'
+Slack : 0.429
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk_50M'
+Slack : 0.511
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'in_freq_anemometre'
+Slack : -3.000
+TNS   : -55.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_50M'
+Slack : -3.000
+TNS   : -37.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk_50M'
+Slack : -41.432
+TNS   : -305.353
+
+Type  : Fast 1200mV 0C Model Setup 'in_freq_anemometre'
+Slack : -2.587
+TNS   : -59.653
+
+Type  : Fast 1200mV 0C Model Hold 'in_freq_anemometre'
+Slack : 0.229
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk_50M'
+Slack : 0.305
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'in_freq_anemometre'
+Slack : -3.000
+TNS   : -69.809
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_50M'
+Slack : -3.000
+TNS   : -46.692
+
+------------------------------------------------------------
