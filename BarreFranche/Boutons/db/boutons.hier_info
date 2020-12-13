@@ -1,0 +1,7 @@
+|boutons
+clk => ~NO_FANOUT~
+BP_Babord => ~NO_FANOUT~
+BP_Tribord => ~NO_FANOUT~
+BP_STBY => ~NO_FANOUT~
+
+

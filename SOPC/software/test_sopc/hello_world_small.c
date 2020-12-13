@@ -88,27 +88,27 @@
 #define freq (unsigned int*) AVALON_PWM_0_BASE
 #define duty (unsigned int*) (AVALON_PWM_0_BASE+4)
 #define control (unsigned int*) (AVALON_PWM_0_BASE+8)
+#define configbutton (unsigned int*) AVALON_GESTION_BP_0_BASE
+#define code (unsigned int*) (AVALON_GESTION_BP_0_BASE+4)
+
+
 
 int main()
 { 
   alt_putstr("Hello from Nios II!\n");
-int i;
 *freq=0x61A80;
 *duty=0x30D40;
 *control=0x3;
+
+*configbutton = 1;
   /* Event loop never exits. */
   while (1){
-      for (i = 0; i < 8; i++) {
-                *led = (1<<i) ; // Decallage a gauche
-                usleep(50000) ;
-      }
 
-      for (i = 0; i < 8; i++) {
-                *led = (0x80>>i) ; // Decallage a droite
-                usleep(50000) ;
-     }
+
       *anemo = *anemo&0x3ff;
       printf("Data: 0x%08X\n", *anemo);
+      printf("Boutons: 0x%08X\n", *code);
+      usleep(25000);
   }
 
 

@@ -10206,6 +10206,50 @@ mon_sopc:inst|avalon_pwm_0:the_avalon_pwm_0
 
 # end
 # entity
+avalon_anemo_0
+# storage
+db|sopc_projet.(83).cnf
+db|sopc_projet.(83).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+avalon_anemo_0.vhd
+532bdf9dd94e22de3d23ce3b2d192c4c
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(writedata)
+31 downto 0
+PARAMETER_STRING
+USR
+ constraint(readdata)
+31 downto 0
+PARAMETER_STRING
+USR
+ constraint(address)
+1 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+mon_sopc:inst|avalon_anemo_0:the_avalon_anemo_0
+}
+# macro_sequence
+
+# end
+# entity
 mon_sopc
 # storage
 db|sopc_projet.(78).cnf
@@ -10217,7 +10261,7 @@ ON
 # case_insensitive
 # source_file
 mon_sopc.vhd
-3152e05ad83cce5053cad397bffcc5f6
+fcc612139c285f57b7526d7b8144e7f
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10247,7 +10291,7 @@ ON
 # case_insensitive
 # source_file
 mon_sopc.vhd
-3152e05ad83cce5053cad397bffcc5f6
+fcc612139c285f57b7526d7b8144e7f
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10295,7 +10339,7 @@ ON
 # case_insensitive
 # source_file
 mon_sopc.vhd
-3152e05ad83cce5053cad397bffcc5f6
+fcc612139c285f57b7526d7b8144e7f
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10351,7 +10395,7 @@ ON
 # case_insensitive
 # source_file
 mon_sopc.vhd
-3152e05ad83cce5053cad397bffcc5f6
+fcc612139c285f57b7526d7b8144e7f
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10396,18 +10440,70 @@ mon_sopc:inst|avalon_anemo_0_avalon_slave_0_arbitrator:the_avalon_anemo_0_avalon
 
 # end
 # entity
-avalon_anemo_0
+avalon_gestion_bp_0_avalon_slave_0_arbitrator
 # storage
-db|sopc_projet.(83).cnf
-db|sopc_projet.(83).cnf
+db|sopc_projet.(84).cnf
+db|sopc_projet.(84).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
 }
 # case_insensitive
 # source_file
-avalon_anemo_0.vhd
-532bdf9dd94e22de3d23ce3b2d192c4c
+mon_sopc.vhd
+fcc612139c285f57b7526d7b8144e7f
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(avalon_gestion_bp_0_avalon_slave_0_readdata)
+31 downto 0
+PARAMETER_STRING
+USR
+ constraint(cpu_0_data_master_address_to_slave)
+16 downto 0
+PARAMETER_STRING
+USR
+ constraint(cpu_0_data_master_writedata)
+31 downto 0
+PARAMETER_STRING
+USR
+ constraint(avalon_gestion_bp_0_avalon_slave_0_readdata_from_sa)
+31 downto 0
+PARAMETER_STRING
+USR
+ constraint(avalon_gestion_bp_0_avalon_slave_0_writedata)
+31 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+mon_sopc:inst|avalon_gestion_bp_0_avalon_slave_0_arbitrator:the_avalon_gestion_bp_0_avalon_slave_0
+}
+# macro_sequence
+
+# end
+# entity
+avalon_gestion_bp_0
+# storage
+db|sopc_projet.(85).cnf
+db|sopc_projet.(85).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+avalon_gestion_bp_0.vhd
+37a00608bdf94061757f1eb67cde26
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10428,13 +10524,9 @@ USR
 31 downto 0
 PARAMETER_STRING
 USR
- constraint(address)
-1 downto 0
-PARAMETER_STRING
-USR
 }
 # hierarchies {
-mon_sopc:inst|avalon_anemo_0:the_avalon_anemo_0
+mon_sopc:inst|avalon_gestion_bp_0:the_avalon_gestion_bp_0
 }
 # macro_sequence
 
@@ -10442,8 +10534,8 @@ mon_sopc:inst|avalon_anemo_0:the_avalon_anemo_0
 # entity
 avalon_pwm_0_avalon_slave_0_arbitrator
 # storage
-db|sopc_projet.(84).cnf
-db|sopc_projet.(84).cnf
+db|sopc_projet.(86).cnf
+db|sopc_projet.(86).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -10451,7 +10543,7 @@ ON
 # case_insensitive
 # source_file
 mon_sopc.vhd
-3152e05ad83cce5053cad397bffcc5f6
+fcc612139c285f57b7526d7b8144e7f
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10498,8 +10590,8 @@ mon_sopc:inst|avalon_pwm_0_avalon_slave_0_arbitrator:the_avalon_pwm_0_avalon_sla
 # entity
 cpu_0_jtag_debug_module_arbitrator
 # storage
-db|sopc_projet.(85).cnf
-db|sopc_projet.(85).cnf
+db|sopc_projet.(87).cnf
+db|sopc_projet.(87).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -10507,7 +10599,7 @@ ON
 # case_insensitive
 # source_file
 mon_sopc.vhd
-3152e05ad83cce5053cad397bffcc5f6
+fcc612139c285f57b7526d7b8144e7f
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10566,8 +10658,8 @@ mon_sopc:inst|cpu_0_jtag_debug_module_arbitrator:the_cpu_0_jtag_debug_module
 # entity
 cpu_0_data_master_arbitrator
 # storage
-db|sopc_projet.(86).cnf
-db|sopc_projet.(86).cnf
+db|sopc_projet.(88).cnf
+db|sopc_projet.(88).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -10575,7 +10667,7 @@ ON
 # case_insensitive
 # source_file
 mon_sopc.vhd
-3152e05ad83cce5053cad397bffcc5f6
+fcc612139c285f57b7526d7b8144e7f
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10597,6 +10689,10 @@ USR
 PARAMETER_STRING
 USR
  constraint(avalon_anemo_0_avalon_slave_0_readdata_from_sa)
+31 downto 0
+PARAMETER_STRING
+USR
+ constraint(avalon_gestion_bp_0_avalon_slave_0_readdata_from_sa)
 31 downto 0
 PARAMETER_STRING
 USR
@@ -10646,8 +10742,8 @@ mon_sopc:inst|cpu_0_data_master_arbitrator:the_cpu_0_data_master
 # entity
 cpu_0_instruction_master_arbitrator
 # storage
-db|sopc_projet.(87).cnf
-db|sopc_projet.(87).cnf
+db|sopc_projet.(89).cnf
+db|sopc_projet.(89).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -10655,7 +10751,7 @@ ON
 # case_insensitive
 # source_file
 mon_sopc.vhd
-3152e05ad83cce5053cad397bffcc5f6
+fcc612139c285f57b7526d7b8144e7f
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10698,8 +10794,8 @@ mon_sopc:inst|cpu_0_instruction_master_arbitrator:the_cpu_0_instruction_master
 # entity
 jtag_uart_0_avalon_jtag_slave_arbitrator
 # storage
-db|sopc_projet.(88).cnf
-db|sopc_projet.(88).cnf
+db|sopc_projet.(90).cnf
+db|sopc_projet.(90).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -10707,7 +10803,7 @@ ON
 # case_insensitive
 # source_file
 mon_sopc.vhd
-3152e05ad83cce5053cad397bffcc5f6
+fcc612139c285f57b7526d7b8144e7f
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10750,8 +10846,8 @@ mon_sopc:inst|jtag_uart_0_avalon_jtag_slave_arbitrator:the_jtag_uart_0_avalon_jt
 # entity
 onchip_memory2_0_s1_arbitrator
 # storage
-db|sopc_projet.(89).cnf
-db|sopc_projet.(89).cnf
+db|sopc_projet.(91).cnf
+db|sopc_projet.(91).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -10759,7 +10855,7 @@ ON
 # case_insensitive
 # source_file
 mon_sopc.vhd
-3152e05ad83cce5053cad397bffcc5f6
+fcc612139c285f57b7526d7b8144e7f
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10818,8 +10914,8 @@ mon_sopc:inst|onchip_memory2_0_s1_arbitrator:the_onchip_memory2_0_s1
 # entity
 sysid_0_control_slave_arbitrator
 # storage
-db|sopc_projet.(90).cnf
-db|sopc_projet.(90).cnf
+db|sopc_projet.(92).cnf
+db|sopc_projet.(92).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -10827,7 +10923,7 @@ ON
 # case_insensitive
 # source_file
 mon_sopc.vhd
-3152e05ad83cce5053cad397bffcc5f6
+fcc612139c285f57b7526d7b8144e7f
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10862,8 +10958,8 @@ mon_sopc:inst|sysid_0_control_slave_arbitrator:the_sysid_0_control_slave
 # entity
 sysid_0
 # storage
-db|sopc_projet.(91).cnf
-db|sopc_projet.(91).cnf
+db|sopc_projet.(94).cnf
+db|sopc_projet.(94).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -10871,7 +10967,7 @@ ON
 # case_insensitive
 # source_file
 sysid_0.vhd
-3b2ff32461432dab3b59236ba6396ab2
+949b3e9440dff91d1bccfdd67fea6599
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10898,8 +10994,8 @@ mon_sopc:inst|sysid_0:the_sysid_0
 # entity
 mon_sopc_reset_clk_0_domain_synch_module
 # storage
-db|sopc_projet.(92).cnf
-db|sopc_projet.(92).cnf
+db|sopc_projet.(95).cnf
+db|sopc_projet.(95).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -10907,7 +11003,7 @@ ON
 # case_insensitive
 # source_file
 mon_sopc.vhd
-3152e05ad83cce5053cad397bffcc5f6
+fcc612139c285f57b7526d7b8144e7f
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -10933,7 +11029,7 @@ db|sopc_projet.(77).cnf
 # case_insensitive
 # source_file
 sopc_projet.bdf
-df5b7a93ea6757d2979fdef8ca4532
+e967d942f1c0194cd44f442bd37c42ff
 26
 # internal_option {
 BLOCK_DESIGN_NAMING
@@ -10941,6 +11037,46 @@ AUTO
 }
 # hierarchies {
 |
+}
+# macro_sequence
+
+# end
+# entity
+avalon_gestion_bp
+# storage
+db|sopc_projet.(93).cnf
+db|sopc_projet.(93).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+avalon_gestion_bp|avalon_gestion_bp.vhd
+603f8c96f4b6f63d3d7ab629d1b3d9
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(writedata)
+31 downto 0
+PARAMETER_STRING
+USR
+ constraint(readdata)
+31 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+mon_sopc:inst|avalon_gestion_bp_0:the_avalon_gestion_bp_0|avalon_gestion_bp:avalon_gestion_bp_0
 }
 # macro_sequence
 

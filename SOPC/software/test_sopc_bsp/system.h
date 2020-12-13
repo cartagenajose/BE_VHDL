@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu_0' in SOPC Builder design 'mon_sopc'
  * SOPC Builder design path: C:/Users/Sebastian/Documents/BE_VHDL/SOPC/mon_sopc.sopcinfo
  *
- * Generated: Sat Dec 12 15:49:26 CST 2020
+ * Generated: Sun Dec 13 11:06:37 CST 2020
  */
 
 /*
@@ -156,6 +156,7 @@
 #define __ALTERA_AVALON_SYSID
 #define __ALTERA_NIOS2
 #define __AVALON_ANEMO
+#define __AVALON_GESTION_BP
 #define __AVALON_PWM
 
 
@@ -234,6 +235,20 @@
 #define AVALON_ANEMO_0_NAME "/dev/avalon_anemo_0"
 #define AVALON_ANEMO_0_SPAN 16
 #define AVALON_ANEMO_0_TYPE "avalon_anemo"
+
+
+/*
+ * avalon_gestion_bp_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_avalon_gestion_bp_0 avalon_gestion_bp
+#define AVALON_GESTION_BP_0_BASE 0x11050
+#define AVALON_GESTION_BP_0_IRQ -1
+#define AVALON_GESTION_BP_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define AVALON_GESTION_BP_0_NAME "/dev/avalon_gestion_bp_0"
+#define AVALON_GESTION_BP_0_SPAN 8
+#define AVALON_GESTION_BP_0_TYPE "avalon_gestion_bp"
 
 
 /*
@@ -319,7 +334,7 @@
 #define SYSID_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_0_NAME "/dev/sysid_0"
 #define SYSID_0_SPAN 8
-#define SYSID_0_TIMESTAMP 1607809167u
+#define SYSID_0_TIMESTAMP 1607878151u
 #define SYSID_0_TYPE "altera_avalon_sysid"
 
 #endif /* __SYSTEM_H_ */

@@ -1,4 +1,6 @@
-Dec 12, 2020 3:41:48 PM com.altera.utilities.Launcher launch
-INFO: Launching:c:/altera/11.1sp2/quartus//bin/quartus_map.exe not_a_project --generate_hdl_interface=C:/Users/Sebastian/Documents/BE_VHDL/SOPC/avalon_pwm/avalon_pwm.vhd --source=C:/Users/Sebastian/Documents/BE_VHDL/SOPC/avalon_pwm/avalon_pwm.vhd --set=HDL_INTERFACE_OUTPUT_PATH=C:/Users/SEBAST~1/AppData/Local/Temp/alt8608_7523316590629323161.dir/0001_sopcqmap/
-Dec 12, 2020 3:41:50 PM com.altera.utilities.Launcher launch
-INFO: Launching:c:/altera/11.1sp2/quartus//bin/quartus_map.exe not_a_project --generate_hdl_interface=C:/Users/Sebastian/Documents/BE_VHDL/SOPC/avalon_anemo/avalon_anemo.vhd --source=C:/Users/Sebastian/Documents/BE_VHDL/SOPC/avalon_anemo/avalon_anemo.vhd --set=HDL_INTERFACE_OUTPUT_PATH=C:/Users/SEBAST~1/AppData/Local/Temp/alt8608_7523316590629323161.dir/0002_sopcqmap/
+Dec 13, 2020 12:26:41 PM com.altera.utilities.Launcher launch
+INFO: Launching:c:/altera/11.1sp2/quartus//bin/quartus_map.exe not_a_project --generate_hdl_interface=C:/Users/Sebastian/Documents/BE_VHDL/SOPC/avalon_pwm/avalon_pwm.vhd --source=C:/Users/Sebastian/Documents/BE_VHDL/SOPC/avalon_pwm/avalon_pwm.vhd --set=HDL_INTERFACE_OUTPUT_PATH=C:/Users/SEBAST~1/AppData/Local/Temp/alt8609_1979676822214904837.dir/0001_sopcqmap/
+Dec 13, 2020 12:26:43 PM com.altera.utilities.Launcher launch
+INFO: Launching:c:/altera/11.1sp2/quartus//bin/quartus_map.exe not_a_project --generate_hdl_interface=C:/Users/Sebastian/Documents/BE_VHDL/SOPC/avalon_anemo/avalon_anemo.vhd --source=C:/Users/Sebastian/Documents/BE_VHDL/SOPC/avalon_anemo/avalon_anemo.vhd --set=HDL_INTERFACE_OUTPUT_PATH=C:/Users/SEBAST~1/AppData/Local/Temp/alt8609_1979676822214904837.dir/0002_sopcqmap/
+Dec 13, 2020 12:26:46 PM com.altera.utilities.Launcher launch
+INFO: Launching:c:/altera/11.1sp2/quartus//bin/quartus_map.exe not_a_project --generate_hdl_interface=C:/Users/Sebastian/Documents/BE_VHDL/SOPC/avalon_gestion_bp/avalon_gestion_bp.vhd --source=C:/Users/Sebastian/Documents/BE_VHDL/SOPC/avalon_gestion_bp/avalon_gestion_bp.vhd --set=HDL_INTERFACE_OUTPUT_PATH=C:/Users/SEBAST~1/AppData/Local/Temp/alt8609_1979676822214904837.dir/0003_sopcqmap/
