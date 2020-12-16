@@ -735,6 +735,244 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
+entity avalon_compas_0_avalon_slave_0_arbitrator is 
+        port (
+              -- inputs:
+                 signal avalon_compas_0_avalon_slave_0_readdata : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal clk : IN STD_LOGIC;
+                 signal cpu_0_data_master_address_to_slave : IN STD_LOGIC_VECTOR (16 DOWNTO 0);
+                 signal cpu_0_data_master_read : IN STD_LOGIC;
+                 signal cpu_0_data_master_waitrequest : IN STD_LOGIC;
+                 signal cpu_0_data_master_write : IN STD_LOGIC;
+                 signal cpu_0_data_master_writedata : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal reset_n : IN STD_LOGIC;
+
+              -- outputs:
+                 signal avalon_compas_0_avalon_slave_0_address : OUT STD_LOGIC;
+                 signal avalon_compas_0_avalon_slave_0_chipselect : OUT STD_LOGIC;
+                 signal avalon_compas_0_avalon_slave_0_readdata_from_sa : OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal avalon_compas_0_avalon_slave_0_reset_n : OUT STD_LOGIC;
+                 signal avalon_compas_0_avalon_slave_0_write_n : OUT STD_LOGIC;
+                 signal avalon_compas_0_avalon_slave_0_writedata : OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0 : OUT STD_LOGIC;
+                 signal cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0 : OUT STD_LOGIC;
+                 signal cpu_0_data_master_read_data_valid_avalon_compas_0_avalon_slave_0 : OUT STD_LOGIC;
+                 signal cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0 : OUT STD_LOGIC;
+                 signal d1_avalon_compas_0_avalon_slave_0_end_xfer : OUT STD_LOGIC
+              );
+end entity avalon_compas_0_avalon_slave_0_arbitrator;
+
+
+architecture europa of avalon_compas_0_avalon_slave_0_arbitrator is
+                signal avalon_compas_0_avalon_slave_0_allgrants :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_allow_new_arb_cycle :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_any_bursting_master_saved_grant :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_any_continuerequest :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_arb_counter_enable :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_arb_share_counter :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_arb_share_counter_next_value :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_arb_share_set_values :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_beginbursttransfer_internal :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_begins_xfer :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_end_xfer :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_firsttransfer :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_grant_vector :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_in_a_read_cycle :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_in_a_write_cycle :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_master_qreq_vector :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_non_bursting_master_requests :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_reg_firsttransfer :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_slavearbiterlockenable :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_slavearbiterlockenable2 :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_unreg_firsttransfer :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_waits_for_read :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_waits_for_write :  STD_LOGIC;
+                signal cpu_0_data_master_arbiterlock :  STD_LOGIC;
+                signal cpu_0_data_master_arbiterlock2 :  STD_LOGIC;
+                signal cpu_0_data_master_continuerequest :  STD_LOGIC;
+                signal cpu_0_data_master_saved_grant_avalon_compas_0_avalon_slave_0 :  STD_LOGIC;
+                signal d1_reasons_to_wait :  STD_LOGIC;
+                signal enable_nonzero_assertions :  STD_LOGIC;
+                signal end_xfer_arb_share_counter_term_avalon_compas_0_avalon_slave_0 :  STD_LOGIC;
+                signal in_a_read_cycle :  STD_LOGIC;
+                signal in_a_write_cycle :  STD_LOGIC;
+                signal internal_cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0 :  STD_LOGIC;
+                signal internal_cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0 :  STD_LOGIC;
+                signal internal_cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0 :  STD_LOGIC;
+                signal shifted_address_to_avalon_compas_0_avalon_slave_0_from_cpu_0_data_master :  STD_LOGIC_VECTOR (16 DOWNTO 0);
+                signal wait_for_avalon_compas_0_avalon_slave_0_counter :  STD_LOGIC;
+
+begin
+
+  process (clk, reset_n)
+  begin
+    if reset_n = '0' then
+      d1_reasons_to_wait <= std_logic'('0');
+    elsif clk'event and clk = '1' then
+      d1_reasons_to_wait <= NOT avalon_compas_0_avalon_slave_0_end_xfer;
+    end if;
+
+  end process;
+
+  avalon_compas_0_avalon_slave_0_begins_xfer <= NOT d1_reasons_to_wait AND (internal_cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0);
+  --assign avalon_compas_0_avalon_slave_0_readdata_from_sa = avalon_compas_0_avalon_slave_0_readdata so that symbol knows where to group signals which may go to master only, which is an e_assign
+  avalon_compas_0_avalon_slave_0_readdata_from_sa <= avalon_compas_0_avalon_slave_0_readdata;
+  internal_cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0 <= to_std_logic(((Std_Logic_Vector'(cpu_0_data_master_address_to_slave(16 DOWNTO 3) & std_logic_vector'("000")) = std_logic_vector'("10001000001011000")))) AND ((cpu_0_data_master_read OR cpu_0_data_master_write));
+  --avalon_compas_0_avalon_slave_0_arb_share_counter set values, which is an e_mux
+  avalon_compas_0_avalon_slave_0_arb_share_set_values <= std_logic'('1');
+  --avalon_compas_0_avalon_slave_0_non_bursting_master_requests mux, which is an e_mux
+  avalon_compas_0_avalon_slave_0_non_bursting_master_requests <= internal_cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0;
+  --avalon_compas_0_avalon_slave_0_any_bursting_master_saved_grant mux, which is an e_mux
+  avalon_compas_0_avalon_slave_0_any_bursting_master_saved_grant <= std_logic'('0');
+  --avalon_compas_0_avalon_slave_0_arb_share_counter_next_value assignment, which is an e_assign
+  avalon_compas_0_avalon_slave_0_arb_share_counter_next_value <= Vector_To_Std_Logic(A_WE_StdLogicVector((std_logic'(avalon_compas_0_avalon_slave_0_firsttransfer) = '1'), (((std_logic_vector'("00000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(avalon_compas_0_avalon_slave_0_arb_share_set_values))) - std_logic_vector'("000000000000000000000000000000001"))), A_WE_StdLogicVector((std_logic'(avalon_compas_0_avalon_slave_0_arb_share_counter) = '1'), (((std_logic_vector'("00000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(avalon_compas_0_avalon_slave_0_arb_share_counter))) - std_logic_vector'("000000000000000000000000000000001"))), std_logic_vector'("000000000000000000000000000000000"))));
+  --avalon_compas_0_avalon_slave_0_allgrants all slave grants, which is an e_mux
+  avalon_compas_0_avalon_slave_0_allgrants <= avalon_compas_0_avalon_slave_0_grant_vector;
+  --avalon_compas_0_avalon_slave_0_end_xfer assignment, which is an e_assign
+  avalon_compas_0_avalon_slave_0_end_xfer <= NOT ((avalon_compas_0_avalon_slave_0_waits_for_read OR avalon_compas_0_avalon_slave_0_waits_for_write));
+  --end_xfer_arb_share_counter_term_avalon_compas_0_avalon_slave_0 arb share counter enable term, which is an e_assign
+  end_xfer_arb_share_counter_term_avalon_compas_0_avalon_slave_0 <= avalon_compas_0_avalon_slave_0_end_xfer AND (((NOT avalon_compas_0_avalon_slave_0_any_bursting_master_saved_grant OR in_a_read_cycle) OR in_a_write_cycle));
+  --avalon_compas_0_avalon_slave_0_arb_share_counter arbitration counter enable, which is an e_assign
+  avalon_compas_0_avalon_slave_0_arb_counter_enable <= ((end_xfer_arb_share_counter_term_avalon_compas_0_avalon_slave_0 AND avalon_compas_0_avalon_slave_0_allgrants)) OR ((end_xfer_arb_share_counter_term_avalon_compas_0_avalon_slave_0 AND NOT avalon_compas_0_avalon_slave_0_non_bursting_master_requests));
+  --avalon_compas_0_avalon_slave_0_arb_share_counter counter, which is an e_register
+  process (clk, reset_n)
+  begin
+    if reset_n = '0' then
+      avalon_compas_0_avalon_slave_0_arb_share_counter <= std_logic'('0');
+    elsif clk'event and clk = '1' then
+      if std_logic'(avalon_compas_0_avalon_slave_0_arb_counter_enable) = '1' then 
+        avalon_compas_0_avalon_slave_0_arb_share_counter <= avalon_compas_0_avalon_slave_0_arb_share_counter_next_value;
+      end if;
+    end if;
+
+  end process;
+
+  --avalon_compas_0_avalon_slave_0_slavearbiterlockenable slave enables arbiterlock, which is an e_register
+  process (clk, reset_n)
+  begin
+    if reset_n = '0' then
+      avalon_compas_0_avalon_slave_0_slavearbiterlockenable <= std_logic'('0');
+    elsif clk'event and clk = '1' then
+      if std_logic'((((avalon_compas_0_avalon_slave_0_master_qreq_vector AND end_xfer_arb_share_counter_term_avalon_compas_0_avalon_slave_0)) OR ((end_xfer_arb_share_counter_term_avalon_compas_0_avalon_slave_0 AND NOT avalon_compas_0_avalon_slave_0_non_bursting_master_requests)))) = '1' then 
+        avalon_compas_0_avalon_slave_0_slavearbiterlockenable <= avalon_compas_0_avalon_slave_0_arb_share_counter_next_value;
+      end if;
+    end if;
+
+  end process;
+
+  --cpu_0/data_master avalon_compas_0/avalon_slave_0 arbiterlock, which is an e_assign
+  cpu_0_data_master_arbiterlock <= avalon_compas_0_avalon_slave_0_slavearbiterlockenable AND cpu_0_data_master_continuerequest;
+  --avalon_compas_0_avalon_slave_0_slavearbiterlockenable2 slave enables arbiterlock2, which is an e_assign
+  avalon_compas_0_avalon_slave_0_slavearbiterlockenable2 <= avalon_compas_0_avalon_slave_0_arb_share_counter_next_value;
+  --cpu_0/data_master avalon_compas_0/avalon_slave_0 arbiterlock2, which is an e_assign
+  cpu_0_data_master_arbiterlock2 <= avalon_compas_0_avalon_slave_0_slavearbiterlockenable2 AND cpu_0_data_master_continuerequest;
+  --avalon_compas_0_avalon_slave_0_any_continuerequest at least one master continues requesting, which is an e_assign
+  avalon_compas_0_avalon_slave_0_any_continuerequest <= std_logic'('1');
+  --cpu_0_data_master_continuerequest continued request, which is an e_assign
+  cpu_0_data_master_continuerequest <= std_logic'('1');
+  internal_cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0 <= internal_cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0 AND NOT (((NOT cpu_0_data_master_waitrequest) AND cpu_0_data_master_write));
+  --avalon_compas_0_avalon_slave_0_writedata mux, which is an e_mux
+  avalon_compas_0_avalon_slave_0_writedata <= cpu_0_data_master_writedata;
+  --master is always granted when requested
+  internal_cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0 <= internal_cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0;
+  --cpu_0/data_master saved-grant avalon_compas_0/avalon_slave_0, which is an e_assign
+  cpu_0_data_master_saved_grant_avalon_compas_0_avalon_slave_0 <= internal_cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0;
+  --allow new arb cycle for avalon_compas_0/avalon_slave_0, which is an e_assign
+  avalon_compas_0_avalon_slave_0_allow_new_arb_cycle <= std_logic'('1');
+  --placeholder chosen master
+  avalon_compas_0_avalon_slave_0_grant_vector <= std_logic'('1');
+  --placeholder vector of master qualified-requests
+  avalon_compas_0_avalon_slave_0_master_qreq_vector <= std_logic'('1');
+  --avalon_compas_0_avalon_slave_0_reset_n assignment, which is an e_assign
+  avalon_compas_0_avalon_slave_0_reset_n <= reset_n;
+  avalon_compas_0_avalon_slave_0_chipselect <= internal_cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0;
+  --avalon_compas_0_avalon_slave_0_firsttransfer first transaction, which is an e_assign
+  avalon_compas_0_avalon_slave_0_firsttransfer <= A_WE_StdLogic((std_logic'(avalon_compas_0_avalon_slave_0_begins_xfer) = '1'), avalon_compas_0_avalon_slave_0_unreg_firsttransfer, avalon_compas_0_avalon_slave_0_reg_firsttransfer);
+  --avalon_compas_0_avalon_slave_0_unreg_firsttransfer first transaction, which is an e_assign
+  avalon_compas_0_avalon_slave_0_unreg_firsttransfer <= NOT ((avalon_compas_0_avalon_slave_0_slavearbiterlockenable AND avalon_compas_0_avalon_slave_0_any_continuerequest));
+  --avalon_compas_0_avalon_slave_0_reg_firsttransfer first transaction, which is an e_register
+  process (clk, reset_n)
+  begin
+    if reset_n = '0' then
+      avalon_compas_0_avalon_slave_0_reg_firsttransfer <= std_logic'('1');
+    elsif clk'event and clk = '1' then
+      if std_logic'(avalon_compas_0_avalon_slave_0_begins_xfer) = '1' then 
+        avalon_compas_0_avalon_slave_0_reg_firsttransfer <= avalon_compas_0_avalon_slave_0_unreg_firsttransfer;
+      end if;
+    end if;
+
+  end process;
+
+  --avalon_compas_0_avalon_slave_0_beginbursttransfer_internal begin burst transfer, which is an e_assign
+  avalon_compas_0_avalon_slave_0_beginbursttransfer_internal <= avalon_compas_0_avalon_slave_0_begins_xfer;
+  --~avalon_compas_0_avalon_slave_0_write_n assignment, which is an e_mux
+  avalon_compas_0_avalon_slave_0_write_n <= NOT ((internal_cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0 AND cpu_0_data_master_write));
+  shifted_address_to_avalon_compas_0_avalon_slave_0_from_cpu_0_data_master <= cpu_0_data_master_address_to_slave;
+  --avalon_compas_0_avalon_slave_0_address mux, which is an e_mux
+  avalon_compas_0_avalon_slave_0_address <= Vector_To_Std_Logic(A_SRL(shifted_address_to_avalon_compas_0_avalon_slave_0_from_cpu_0_data_master,std_logic_vector'("00000000000000000000000000000010")));
+  --d1_avalon_compas_0_avalon_slave_0_end_xfer register, which is an e_register
+  process (clk, reset_n)
+  begin
+    if reset_n = '0' then
+      d1_avalon_compas_0_avalon_slave_0_end_xfer <= std_logic'('1');
+    elsif clk'event and clk = '1' then
+      d1_avalon_compas_0_avalon_slave_0_end_xfer <= avalon_compas_0_avalon_slave_0_end_xfer;
+    end if;
+
+  end process;
+
+  --avalon_compas_0_avalon_slave_0_waits_for_read in a cycle, which is an e_mux
+  avalon_compas_0_avalon_slave_0_waits_for_read <= avalon_compas_0_avalon_slave_0_in_a_read_cycle AND avalon_compas_0_avalon_slave_0_begins_xfer;
+  --avalon_compas_0_avalon_slave_0_in_a_read_cycle assignment, which is an e_assign
+  avalon_compas_0_avalon_slave_0_in_a_read_cycle <= internal_cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0 AND cpu_0_data_master_read;
+  --in_a_read_cycle assignment, which is an e_mux
+  in_a_read_cycle <= avalon_compas_0_avalon_slave_0_in_a_read_cycle;
+  --avalon_compas_0_avalon_slave_0_waits_for_write in a cycle, which is an e_mux
+  avalon_compas_0_avalon_slave_0_waits_for_write <= Vector_To_Std_Logic(((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(avalon_compas_0_avalon_slave_0_in_a_write_cycle))) AND std_logic_vector'("00000000000000000000000000000000")));
+  --avalon_compas_0_avalon_slave_0_in_a_write_cycle assignment, which is an e_assign
+  avalon_compas_0_avalon_slave_0_in_a_write_cycle <= internal_cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0 AND cpu_0_data_master_write;
+  --in_a_write_cycle assignment, which is an e_mux
+  in_a_write_cycle <= avalon_compas_0_avalon_slave_0_in_a_write_cycle;
+  wait_for_avalon_compas_0_avalon_slave_0_counter <= std_logic'('0');
+  --vhdl renameroo for output signals
+  cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0 <= internal_cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0;
+  --vhdl renameroo for output signals
+  cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0 <= internal_cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0;
+  --vhdl renameroo for output signals
+  cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0 <= internal_cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0;
+--synthesis translate_off
+    --avalon_compas_0/avalon_slave_0 enable non-zero assertions, which is an e_register
+    process (clk, reset_n)
+    begin
+      if reset_n = '0' then
+        enable_nonzero_assertions <= std_logic'('0');
+      elsif clk'event and clk = '1' then
+        enable_nonzero_assertions <= std_logic'('1');
+      end if;
+
+    end process;
+
+--synthesis translate_on
+
+end europa;
+
+
+
+-- turn off superfluous VHDL processor warnings 
+-- altera message_level Level1 
+-- altera message_off 10034 10035 10036 10037 10230 10240 10030 
+
+library altera;
+use altera.altera_europa_support_lib.all;
+
+library altera_mf;
+use altera_mf.altera_mf_components.all;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
 entity avalon_gestion_bp_0_avalon_slave_0_arbitrator is 
         port (
               -- inputs:
@@ -1605,6 +1843,7 @@ entity cpu_0_data_master_arbitrator is
                  signal Button_s1_readdata_from_sa : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                  signal LED_s1_readdata_from_sa : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                  signal avalon_anemo_0_avalon_slave_0_readdata_from_sa : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal avalon_compas_0_avalon_slave_0_readdata_from_sa : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                  signal avalon_gestion_bp_0_avalon_slave_0_readdata_from_sa : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                  signal avalon_pwm_0_avalon_slave_0_readdata_from_sa : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                  signal clk : IN STD_LOGIC;
@@ -1612,6 +1851,7 @@ entity cpu_0_data_master_arbitrator is
                  signal cpu_0_data_master_granted_Button_s1 : IN STD_LOGIC;
                  signal cpu_0_data_master_granted_LED_s1 : IN STD_LOGIC;
                  signal cpu_0_data_master_granted_avalon_anemo_0_avalon_slave_0 : IN STD_LOGIC;
+                 signal cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0 : IN STD_LOGIC;
                  signal cpu_0_data_master_granted_avalon_gestion_bp_0_avalon_slave_0 : IN STD_LOGIC;
                  signal cpu_0_data_master_granted_avalon_pwm_0_avalon_slave_0 : IN STD_LOGIC;
                  signal cpu_0_data_master_granted_cpu_0_jtag_debug_module : IN STD_LOGIC;
@@ -1621,6 +1861,7 @@ entity cpu_0_data_master_arbitrator is
                  signal cpu_0_data_master_qualified_request_Button_s1 : IN STD_LOGIC;
                  signal cpu_0_data_master_qualified_request_LED_s1 : IN STD_LOGIC;
                  signal cpu_0_data_master_qualified_request_avalon_anemo_0_avalon_slave_0 : IN STD_LOGIC;
+                 signal cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0 : IN STD_LOGIC;
                  signal cpu_0_data_master_qualified_request_avalon_gestion_bp_0_avalon_slave_0 : IN STD_LOGIC;
                  signal cpu_0_data_master_qualified_request_avalon_pwm_0_avalon_slave_0 : IN STD_LOGIC;
                  signal cpu_0_data_master_qualified_request_cpu_0_jtag_debug_module : IN STD_LOGIC;
@@ -1631,6 +1872,7 @@ entity cpu_0_data_master_arbitrator is
                  signal cpu_0_data_master_read_data_valid_Button_s1 : IN STD_LOGIC;
                  signal cpu_0_data_master_read_data_valid_LED_s1 : IN STD_LOGIC;
                  signal cpu_0_data_master_read_data_valid_avalon_anemo_0_avalon_slave_0 : IN STD_LOGIC;
+                 signal cpu_0_data_master_read_data_valid_avalon_compas_0_avalon_slave_0 : IN STD_LOGIC;
                  signal cpu_0_data_master_read_data_valid_avalon_gestion_bp_0_avalon_slave_0 : IN STD_LOGIC;
                  signal cpu_0_data_master_read_data_valid_avalon_pwm_0_avalon_slave_0 : IN STD_LOGIC;
                  signal cpu_0_data_master_read_data_valid_cpu_0_jtag_debug_module : IN STD_LOGIC;
@@ -1640,6 +1882,7 @@ entity cpu_0_data_master_arbitrator is
                  signal cpu_0_data_master_requests_Button_s1 : IN STD_LOGIC;
                  signal cpu_0_data_master_requests_LED_s1 : IN STD_LOGIC;
                  signal cpu_0_data_master_requests_avalon_anemo_0_avalon_slave_0 : IN STD_LOGIC;
+                 signal cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0 : IN STD_LOGIC;
                  signal cpu_0_data_master_requests_avalon_gestion_bp_0_avalon_slave_0 : IN STD_LOGIC;
                  signal cpu_0_data_master_requests_avalon_pwm_0_avalon_slave_0 : IN STD_LOGIC;
                  signal cpu_0_data_master_requests_cpu_0_jtag_debug_module : IN STD_LOGIC;
@@ -1651,6 +1894,7 @@ entity cpu_0_data_master_arbitrator is
                  signal d1_Button_s1_end_xfer : IN STD_LOGIC;
                  signal d1_LED_s1_end_xfer : IN STD_LOGIC;
                  signal d1_avalon_anemo_0_avalon_slave_0_end_xfer : IN STD_LOGIC;
+                 signal d1_avalon_compas_0_avalon_slave_0_end_xfer : IN STD_LOGIC;
                  signal d1_avalon_gestion_bp_0_avalon_slave_0_end_xfer : IN STD_LOGIC;
                  signal d1_avalon_pwm_0_avalon_slave_0_end_xfer : IN STD_LOGIC;
                  signal d1_cpu_0_jtag_debug_module_end_xfer : IN STD_LOGIC;
@@ -1686,15 +1930,15 @@ architecture europa of cpu_0_data_master_arbitrator is
 begin
 
   --r_0 master_run cascaded wait assignment, which is an e_assign
-  r_0 <= Vector_To_Std_Logic((((((((((((((((((((std_logic_vector'("00000000000000000000000000000001") AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_Button_s1 OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_Button_s1 OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_qualified_request_LED_s1 OR NOT cpu_0_data_master_requests_LED_s1)))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_LED_s1 OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_LED_s1 OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_qualified_request_avalon_anemo_0_avalon_slave_0 OR NOT cpu_0_data_master_requests_avalon_anemo_0_avalon_slave_0)))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_anemo_0_avalon_slave_0 OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_anemo_0_avalon_slave_0 OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_qualified_request_avalon_gestion_bp_0_avalon_slave_0 OR NOT cpu_0_data_master_requests_avalon_gestion_bp_0_avalon_slave_0)))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_gestion_bp_0_avalon_slave_0 OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_gestion_bp_0_avalon_slave_0 OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_qualified_request_avalon_pwm_0_avalon_slave_0 OR NOT cpu_0_data_master_requests_avalon_pwm_0_avalon_slave_0)))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_pwm_0_avalon_slave_0 OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_pwm_0_avalon_slave_0 OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))) AND std_logic_vector'("00000000000000000000000000000001")));
+  r_0 <= Vector_To_Std_Logic((((((((((((((((((((std_logic_vector'("00000000000000000000000000000001") AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_Button_s1 OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_Button_s1 OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_qualified_request_LED_s1 OR NOT cpu_0_data_master_requests_LED_s1)))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_LED_s1 OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_LED_s1 OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_qualified_request_avalon_anemo_0_avalon_slave_0 OR NOT cpu_0_data_master_requests_avalon_anemo_0_avalon_slave_0)))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_anemo_0_avalon_slave_0 OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_anemo_0_avalon_slave_0 OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0 OR NOT cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0)))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0 OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0 OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_qualified_request_avalon_gestion_bp_0_avalon_slave_0 OR NOT cpu_0_data_master_requests_avalon_gestion_bp_0_avalon_slave_0)))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_gestion_bp_0_avalon_slave_0 OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_gestion_bp_0_avalon_slave_0 OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))) AND std_logic_vector'("00000000000000000000000000000001")));
   --cascaded wait assignment, which is an e_assign
   cpu_0_data_master_run <= r_0 AND r_1;
   --r_1 master_run cascaded wait assignment, which is an e_assign
-  r_1 <= Vector_To_Std_Logic((((((((((((((((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((((cpu_0_data_master_qualified_request_cpu_0_jtag_debug_module OR NOT cpu_0_data_master_requests_cpu_0_jtag_debug_module)) AND ((cpu_0_data_master_granted_cpu_0_jtag_debug_module OR NOT cpu_0_data_master_qualified_request_cpu_0_jtag_debug_module)))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_cpu_0_jtag_debug_module OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_cpu_0_jtag_debug_module OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_qualified_request_jtag_uart_0_avalon_jtag_slave OR NOT cpu_0_data_master_requests_jtag_uart_0_avalon_jtag_slave)))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_jtag_uart_0_avalon_jtag_slave OR NOT ((cpu_0_data_master_read OR cpu_0_data_master_write)))))) OR (((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(NOT jtag_uart_0_avalon_jtag_slave_waitrequest_from_sa)))) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_read OR cpu_0_data_master_write)))))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_jtag_uart_0_avalon_jtag_slave OR NOT ((cpu_0_data_master_read OR cpu_0_data_master_write)))))) OR (((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(NOT jtag_uart_0_avalon_jtag_slave_waitrequest_from_sa)))) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_read OR cpu_0_data_master_write)))))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((((cpu_0_data_master_qualified_request_onchip_memory2_0_s1 OR registered_cpu_0_data_master_read_data_valid_onchip_memory2_0_s1) OR NOT cpu_0_data_master_requests_onchip_memory2_0_s1)))))) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_granted_onchip_memory2_0_s1 OR NOT cpu_0_data_master_qualified_request_onchip_memory2_0_s1)))))) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((((NOT cpu_0_data_master_qualified_request_onchip_memory2_0_s1 OR NOT cpu_0_data_master_read) OR ((registered_cpu_0_data_master_read_data_valid_onchip_memory2_0_s1 AND cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_onchip_memory2_0_s1 OR NOT ((cpu_0_data_master_read OR cpu_0_data_master_write)))))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_read OR cpu_0_data_master_write)))))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_sysid_0_control_slave OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_sysid_0_control_slave OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))));
+  r_1 <= Vector_To_Std_Logic(((((((((((((((((((((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_qualified_request_avalon_pwm_0_avalon_slave_0 OR NOT cpu_0_data_master_requests_avalon_pwm_0_avalon_slave_0))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_pwm_0_avalon_slave_0 OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_avalon_pwm_0_avalon_slave_0 OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_qualified_request_cpu_0_jtag_debug_module OR NOT cpu_0_data_master_requests_cpu_0_jtag_debug_module)))))) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_granted_cpu_0_jtag_debug_module OR NOT cpu_0_data_master_qualified_request_cpu_0_jtag_debug_module)))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_cpu_0_jtag_debug_module OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_cpu_0_jtag_debug_module OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_qualified_request_jtag_uart_0_avalon_jtag_slave OR NOT cpu_0_data_master_requests_jtag_uart_0_avalon_jtag_slave)))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_jtag_uart_0_avalon_jtag_slave OR NOT ((cpu_0_data_master_read OR cpu_0_data_master_write)))))) OR (((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(NOT jtag_uart_0_avalon_jtag_slave_waitrequest_from_sa)))) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_read OR cpu_0_data_master_write)))))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_jtag_uart_0_avalon_jtag_slave OR NOT ((cpu_0_data_master_read OR cpu_0_data_master_write)))))) OR (((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(NOT jtag_uart_0_avalon_jtag_slave_waitrequest_from_sa)))) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_read OR cpu_0_data_master_write)))))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((((cpu_0_data_master_qualified_request_onchip_memory2_0_s1 OR registered_cpu_0_data_master_read_data_valid_onchip_memory2_0_s1) OR NOT cpu_0_data_master_requests_onchip_memory2_0_s1)))))) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_granted_onchip_memory2_0_s1 OR NOT cpu_0_data_master_qualified_request_onchip_memory2_0_s1)))))) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((((NOT cpu_0_data_master_qualified_request_onchip_memory2_0_s1 OR NOT cpu_0_data_master_read) OR ((registered_cpu_0_data_master_read_data_valid_onchip_memory2_0_s1 AND cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_onchip_memory2_0_s1 OR NOT ((cpu_0_data_master_read OR cpu_0_data_master_write)))))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(((cpu_0_data_master_read OR cpu_0_data_master_write)))))))))) AND std_logic_vector'("00000000000000000000000000000001")) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_sysid_0_control_slave OR NOT cpu_0_data_master_read)))) OR (((std_logic_vector'("00000000000000000000000000000001") AND std_logic_vector'("00000000000000000000000000000001")) AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_read)))))))) AND (((std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR((NOT cpu_0_data_master_qualified_request_sysid_0_control_slave OR NOT cpu_0_data_master_write)))) OR ((std_logic_vector'("00000000000000000000000000000001") AND (std_logic_vector'("0000000000000000000000000000000") & (A_TOSTDLOGICVECTOR(cpu_0_data_master_write)))))))));
   --optimize select-logic by passing only those address bits which matter.
   internal_cpu_0_data_master_address_to_slave <= cpu_0_data_master_address(16 DOWNTO 0);
   --cpu_0/data_master readdata mux, which is an e_mux
-  cpu_0_data_master_readdata <= (((((((((A_REP(NOT cpu_0_data_master_requests_Button_s1, 32) OR Button_s1_readdata_from_sa)) AND ((A_REP(NOT cpu_0_data_master_requests_LED_s1, 32) OR LED_s1_readdata_from_sa))) AND ((A_REP(NOT cpu_0_data_master_requests_avalon_anemo_0_avalon_slave_0, 32) OR avalon_anemo_0_avalon_slave_0_readdata_from_sa))) AND ((A_REP(NOT cpu_0_data_master_requests_avalon_gestion_bp_0_avalon_slave_0, 32) OR avalon_gestion_bp_0_avalon_slave_0_readdata_from_sa))) AND ((A_REP(NOT cpu_0_data_master_requests_avalon_pwm_0_avalon_slave_0, 32) OR avalon_pwm_0_avalon_slave_0_readdata_from_sa))) AND ((A_REP(NOT cpu_0_data_master_requests_cpu_0_jtag_debug_module, 32) OR cpu_0_jtag_debug_module_readdata_from_sa))) AND ((A_REP(NOT cpu_0_data_master_requests_jtag_uart_0_avalon_jtag_slave, 32) OR registered_cpu_0_data_master_readdata))) AND ((A_REP(NOT cpu_0_data_master_requests_onchip_memory2_0_s1, 32) OR onchip_memory2_0_s1_readdata_from_sa))) AND ((A_REP(NOT cpu_0_data_master_requests_sysid_0_control_slave, 32) OR sysid_0_control_slave_readdata_from_sa));
+  cpu_0_data_master_readdata <= ((((((((((A_REP(NOT cpu_0_data_master_requests_Button_s1, 32) OR Button_s1_readdata_from_sa)) AND ((A_REP(NOT cpu_0_data_master_requests_LED_s1, 32) OR LED_s1_readdata_from_sa))) AND ((A_REP(NOT cpu_0_data_master_requests_avalon_anemo_0_avalon_slave_0, 32) OR avalon_anemo_0_avalon_slave_0_readdata_from_sa))) AND ((A_REP(NOT cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0, 32) OR avalon_compas_0_avalon_slave_0_readdata_from_sa))) AND ((A_REP(NOT cpu_0_data_master_requests_avalon_gestion_bp_0_avalon_slave_0, 32) OR avalon_gestion_bp_0_avalon_slave_0_readdata_from_sa))) AND ((A_REP(NOT cpu_0_data_master_requests_avalon_pwm_0_avalon_slave_0, 32) OR avalon_pwm_0_avalon_slave_0_readdata_from_sa))) AND ((A_REP(NOT cpu_0_data_master_requests_cpu_0_jtag_debug_module, 32) OR cpu_0_jtag_debug_module_readdata_from_sa))) AND ((A_REP(NOT cpu_0_data_master_requests_jtag_uart_0_avalon_jtag_slave, 32) OR registered_cpu_0_data_master_readdata))) AND ((A_REP(NOT cpu_0_data_master_requests_onchip_memory2_0_s1, 32) OR onchip_memory2_0_s1_readdata_from_sa))) AND ((A_REP(NOT cpu_0_data_master_requests_sysid_0_control_slave, 32) OR sysid_0_control_slave_readdata_from_sa));
   --actual waitrequest port, which is an e_register
   process (clk, reset_n)
   begin
@@ -2878,6 +3122,9 @@ entity mon_sopc is
               -- the_avalon_anemo_0
                  signal in_freq_anemometre_to_the_avalon_anemo_0 : IN STD_LOGIC;
 
+              -- the_avalon_compas_0
+                 signal in_pwm_compas_to_the_avalon_compas_0 : IN STD_LOGIC;
+
               -- the_avalon_gestion_bp_0
                  signal BP_Babord_to_the_avalon_gestion_bp_0 : IN STD_LOGIC;
                  signal BP_STBY_to_the_avalon_gestion_bp_0 : IN STD_LOGIC;
@@ -3014,6 +3261,49 @@ component avalon_anemo_0 is
                     signal readdata : OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
                  );
 end component avalon_anemo_0;
+
+component avalon_compas_0_avalon_slave_0_arbitrator is 
+           port (
+                 -- inputs:
+                    signal avalon_compas_0_avalon_slave_0_readdata : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                    signal clk : IN STD_LOGIC;
+                    signal cpu_0_data_master_address_to_slave : IN STD_LOGIC_VECTOR (16 DOWNTO 0);
+                    signal cpu_0_data_master_read : IN STD_LOGIC;
+                    signal cpu_0_data_master_waitrequest : IN STD_LOGIC;
+                    signal cpu_0_data_master_write : IN STD_LOGIC;
+                    signal cpu_0_data_master_writedata : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                    signal reset_n : IN STD_LOGIC;
+
+                 -- outputs:
+                    signal avalon_compas_0_avalon_slave_0_address : OUT STD_LOGIC;
+                    signal avalon_compas_0_avalon_slave_0_chipselect : OUT STD_LOGIC;
+                    signal avalon_compas_0_avalon_slave_0_readdata_from_sa : OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
+                    signal avalon_compas_0_avalon_slave_0_reset_n : OUT STD_LOGIC;
+                    signal avalon_compas_0_avalon_slave_0_write_n : OUT STD_LOGIC;
+                    signal avalon_compas_0_avalon_slave_0_writedata : OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
+                    signal cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0 : OUT STD_LOGIC;
+                    signal cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0 : OUT STD_LOGIC;
+                    signal cpu_0_data_master_read_data_valid_avalon_compas_0_avalon_slave_0 : OUT STD_LOGIC;
+                    signal cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0 : OUT STD_LOGIC;
+                    signal d1_avalon_compas_0_avalon_slave_0_end_xfer : OUT STD_LOGIC
+                 );
+end component avalon_compas_0_avalon_slave_0_arbitrator;
+
+component avalon_compas_0 is 
+           port (
+                 -- inputs:
+                    signal address : IN STD_LOGIC;
+                    signal chipselect : IN STD_LOGIC;
+                    signal clk : IN STD_LOGIC;
+                    signal in_pwm_compas : IN STD_LOGIC;
+                    signal reset_n : IN STD_LOGIC;
+                    signal write_n : IN STD_LOGIC;
+                    signal writedata : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+
+                 -- outputs:
+                    signal readdata : OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+                 );
+end component avalon_compas_0;
 
 component avalon_gestion_bp_0_avalon_slave_0_arbitrator is 
            port (
@@ -3153,6 +3443,7 @@ component cpu_0_data_master_arbitrator is
                     signal Button_s1_readdata_from_sa : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                     signal LED_s1_readdata_from_sa : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                     signal avalon_anemo_0_avalon_slave_0_readdata_from_sa : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                    signal avalon_compas_0_avalon_slave_0_readdata_from_sa : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                     signal avalon_gestion_bp_0_avalon_slave_0_readdata_from_sa : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                     signal avalon_pwm_0_avalon_slave_0_readdata_from_sa : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                     signal clk : IN STD_LOGIC;
@@ -3160,6 +3451,7 @@ component cpu_0_data_master_arbitrator is
                     signal cpu_0_data_master_granted_Button_s1 : IN STD_LOGIC;
                     signal cpu_0_data_master_granted_LED_s1 : IN STD_LOGIC;
                     signal cpu_0_data_master_granted_avalon_anemo_0_avalon_slave_0 : IN STD_LOGIC;
+                    signal cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0 : IN STD_LOGIC;
                     signal cpu_0_data_master_granted_avalon_gestion_bp_0_avalon_slave_0 : IN STD_LOGIC;
                     signal cpu_0_data_master_granted_avalon_pwm_0_avalon_slave_0 : IN STD_LOGIC;
                     signal cpu_0_data_master_granted_cpu_0_jtag_debug_module : IN STD_LOGIC;
@@ -3169,6 +3461,7 @@ component cpu_0_data_master_arbitrator is
                     signal cpu_0_data_master_qualified_request_Button_s1 : IN STD_LOGIC;
                     signal cpu_0_data_master_qualified_request_LED_s1 : IN STD_LOGIC;
                     signal cpu_0_data_master_qualified_request_avalon_anemo_0_avalon_slave_0 : IN STD_LOGIC;
+                    signal cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0 : IN STD_LOGIC;
                     signal cpu_0_data_master_qualified_request_avalon_gestion_bp_0_avalon_slave_0 : IN STD_LOGIC;
                     signal cpu_0_data_master_qualified_request_avalon_pwm_0_avalon_slave_0 : IN STD_LOGIC;
                     signal cpu_0_data_master_qualified_request_cpu_0_jtag_debug_module : IN STD_LOGIC;
@@ -3179,6 +3472,7 @@ component cpu_0_data_master_arbitrator is
                     signal cpu_0_data_master_read_data_valid_Button_s1 : IN STD_LOGIC;
                     signal cpu_0_data_master_read_data_valid_LED_s1 : IN STD_LOGIC;
                     signal cpu_0_data_master_read_data_valid_avalon_anemo_0_avalon_slave_0 : IN STD_LOGIC;
+                    signal cpu_0_data_master_read_data_valid_avalon_compas_0_avalon_slave_0 : IN STD_LOGIC;
                     signal cpu_0_data_master_read_data_valid_avalon_gestion_bp_0_avalon_slave_0 : IN STD_LOGIC;
                     signal cpu_0_data_master_read_data_valid_avalon_pwm_0_avalon_slave_0 : IN STD_LOGIC;
                     signal cpu_0_data_master_read_data_valid_cpu_0_jtag_debug_module : IN STD_LOGIC;
@@ -3188,6 +3482,7 @@ component cpu_0_data_master_arbitrator is
                     signal cpu_0_data_master_requests_Button_s1 : IN STD_LOGIC;
                     signal cpu_0_data_master_requests_LED_s1 : IN STD_LOGIC;
                     signal cpu_0_data_master_requests_avalon_anemo_0_avalon_slave_0 : IN STD_LOGIC;
+                    signal cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0 : IN STD_LOGIC;
                     signal cpu_0_data_master_requests_avalon_gestion_bp_0_avalon_slave_0 : IN STD_LOGIC;
                     signal cpu_0_data_master_requests_avalon_pwm_0_avalon_slave_0 : IN STD_LOGIC;
                     signal cpu_0_data_master_requests_cpu_0_jtag_debug_module : IN STD_LOGIC;
@@ -3199,6 +3494,7 @@ component cpu_0_data_master_arbitrator is
                     signal d1_Button_s1_end_xfer : IN STD_LOGIC;
                     signal d1_LED_s1_end_xfer : IN STD_LOGIC;
                     signal d1_avalon_anemo_0_avalon_slave_0_end_xfer : IN STD_LOGIC;
+                    signal d1_avalon_compas_0_avalon_slave_0_end_xfer : IN STD_LOGIC;
                     signal d1_avalon_gestion_bp_0_avalon_slave_0_end_xfer : IN STD_LOGIC;
                     signal d1_avalon_pwm_0_avalon_slave_0_end_xfer : IN STD_LOGIC;
                     signal d1_cpu_0_jtag_debug_module_end_xfer : IN STD_LOGIC;
@@ -3454,6 +3750,13 @@ end component mon_sopc_reset_clk_0_domain_synch_module;
                 signal avalon_anemo_0_avalon_slave_0_reset_n :  STD_LOGIC;
                 signal avalon_anemo_0_avalon_slave_0_write_n :  STD_LOGIC;
                 signal avalon_anemo_0_avalon_slave_0_writedata :  STD_LOGIC_VECTOR (31 DOWNTO 0);
+                signal avalon_compas_0_avalon_slave_0_address :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_chipselect :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_readdata :  STD_LOGIC_VECTOR (31 DOWNTO 0);
+                signal avalon_compas_0_avalon_slave_0_readdata_from_sa :  STD_LOGIC_VECTOR (31 DOWNTO 0);
+                signal avalon_compas_0_avalon_slave_0_reset_n :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_write_n :  STD_LOGIC;
+                signal avalon_compas_0_avalon_slave_0_writedata :  STD_LOGIC_VECTOR (31 DOWNTO 0);
                 signal avalon_gestion_bp_0_avalon_slave_0_address :  STD_LOGIC;
                 signal avalon_gestion_bp_0_avalon_slave_0_chipselect :  STD_LOGIC;
                 signal avalon_gestion_bp_0_avalon_slave_0_readdata :  STD_LOGIC_VECTOR (31 DOWNTO 0);
@@ -3476,6 +3779,7 @@ end component mon_sopc_reset_clk_0_domain_synch_module;
                 signal cpu_0_data_master_granted_Button_s1 :  STD_LOGIC;
                 signal cpu_0_data_master_granted_LED_s1 :  STD_LOGIC;
                 signal cpu_0_data_master_granted_avalon_anemo_0_avalon_slave_0 :  STD_LOGIC;
+                signal cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0 :  STD_LOGIC;
                 signal cpu_0_data_master_granted_avalon_gestion_bp_0_avalon_slave_0 :  STD_LOGIC;
                 signal cpu_0_data_master_granted_avalon_pwm_0_avalon_slave_0 :  STD_LOGIC;
                 signal cpu_0_data_master_granted_cpu_0_jtag_debug_module :  STD_LOGIC;
@@ -3486,6 +3790,7 @@ end component mon_sopc_reset_clk_0_domain_synch_module;
                 signal cpu_0_data_master_qualified_request_Button_s1 :  STD_LOGIC;
                 signal cpu_0_data_master_qualified_request_LED_s1 :  STD_LOGIC;
                 signal cpu_0_data_master_qualified_request_avalon_anemo_0_avalon_slave_0 :  STD_LOGIC;
+                signal cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0 :  STD_LOGIC;
                 signal cpu_0_data_master_qualified_request_avalon_gestion_bp_0_avalon_slave_0 :  STD_LOGIC;
                 signal cpu_0_data_master_qualified_request_avalon_pwm_0_avalon_slave_0 :  STD_LOGIC;
                 signal cpu_0_data_master_qualified_request_cpu_0_jtag_debug_module :  STD_LOGIC;
@@ -3496,6 +3801,7 @@ end component mon_sopc_reset_clk_0_domain_synch_module;
                 signal cpu_0_data_master_read_data_valid_Button_s1 :  STD_LOGIC;
                 signal cpu_0_data_master_read_data_valid_LED_s1 :  STD_LOGIC;
                 signal cpu_0_data_master_read_data_valid_avalon_anemo_0_avalon_slave_0 :  STD_LOGIC;
+                signal cpu_0_data_master_read_data_valid_avalon_compas_0_avalon_slave_0 :  STD_LOGIC;
                 signal cpu_0_data_master_read_data_valid_avalon_gestion_bp_0_avalon_slave_0 :  STD_LOGIC;
                 signal cpu_0_data_master_read_data_valid_avalon_pwm_0_avalon_slave_0 :  STD_LOGIC;
                 signal cpu_0_data_master_read_data_valid_cpu_0_jtag_debug_module :  STD_LOGIC;
@@ -3506,6 +3812,7 @@ end component mon_sopc_reset_clk_0_domain_synch_module;
                 signal cpu_0_data_master_requests_Button_s1 :  STD_LOGIC;
                 signal cpu_0_data_master_requests_LED_s1 :  STD_LOGIC;
                 signal cpu_0_data_master_requests_avalon_anemo_0_avalon_slave_0 :  STD_LOGIC;
+                signal cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0 :  STD_LOGIC;
                 signal cpu_0_data_master_requests_avalon_gestion_bp_0_avalon_slave_0 :  STD_LOGIC;
                 signal cpu_0_data_master_requests_avalon_pwm_0_avalon_slave_0 :  STD_LOGIC;
                 signal cpu_0_data_master_requests_cpu_0_jtag_debug_module :  STD_LOGIC;
@@ -3543,6 +3850,7 @@ end component mon_sopc_reset_clk_0_domain_synch_module;
                 signal d1_Button_s1_end_xfer :  STD_LOGIC;
                 signal d1_LED_s1_end_xfer :  STD_LOGIC;
                 signal d1_avalon_anemo_0_avalon_slave_0_end_xfer :  STD_LOGIC;
+                signal d1_avalon_compas_0_avalon_slave_0_end_xfer :  STD_LOGIC;
                 signal d1_avalon_gestion_bp_0_avalon_slave_0_end_xfer :  STD_LOGIC;
                 signal d1_avalon_pwm_0_avalon_slave_0_end_xfer :  STD_LOGIC;
                 signal d1_cpu_0_jtag_debug_module_end_xfer :  STD_LOGIC;
@@ -3700,6 +4008,45 @@ begin
     );
 
 
+  --the_avalon_compas_0_avalon_slave_0, which is an e_instance
+  the_avalon_compas_0_avalon_slave_0 : avalon_compas_0_avalon_slave_0_arbitrator
+    port map(
+      avalon_compas_0_avalon_slave_0_address => avalon_compas_0_avalon_slave_0_address,
+      avalon_compas_0_avalon_slave_0_chipselect => avalon_compas_0_avalon_slave_0_chipselect,
+      avalon_compas_0_avalon_slave_0_readdata_from_sa => avalon_compas_0_avalon_slave_0_readdata_from_sa,
+      avalon_compas_0_avalon_slave_0_reset_n => avalon_compas_0_avalon_slave_0_reset_n,
+      avalon_compas_0_avalon_slave_0_write_n => avalon_compas_0_avalon_slave_0_write_n,
+      avalon_compas_0_avalon_slave_0_writedata => avalon_compas_0_avalon_slave_0_writedata,
+      cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0 => cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0,
+      cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0 => cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0,
+      cpu_0_data_master_read_data_valid_avalon_compas_0_avalon_slave_0 => cpu_0_data_master_read_data_valid_avalon_compas_0_avalon_slave_0,
+      cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0 => cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0,
+      d1_avalon_compas_0_avalon_slave_0_end_xfer => d1_avalon_compas_0_avalon_slave_0_end_xfer,
+      avalon_compas_0_avalon_slave_0_readdata => avalon_compas_0_avalon_slave_0_readdata,
+      clk => clk_0,
+      cpu_0_data_master_address_to_slave => cpu_0_data_master_address_to_slave,
+      cpu_0_data_master_read => cpu_0_data_master_read,
+      cpu_0_data_master_waitrequest => cpu_0_data_master_waitrequest,
+      cpu_0_data_master_write => cpu_0_data_master_write,
+      cpu_0_data_master_writedata => cpu_0_data_master_writedata,
+      reset_n => clk_0_reset_n
+    );
+
+
+  --the_avalon_compas_0, which is an e_ptf_instance
+  the_avalon_compas_0 : avalon_compas_0
+    port map(
+      readdata => avalon_compas_0_avalon_slave_0_readdata,
+      address => avalon_compas_0_avalon_slave_0_address,
+      chipselect => avalon_compas_0_avalon_slave_0_chipselect,
+      clk => clk_0,
+      in_pwm_compas => in_pwm_compas_to_the_avalon_compas_0,
+      reset_n => avalon_compas_0_avalon_slave_0_reset_n,
+      write_n => avalon_compas_0_avalon_slave_0_write_n,
+      writedata => avalon_compas_0_avalon_slave_0_writedata
+    );
+
+
   --the_avalon_gestion_bp_0_avalon_slave_0, which is an e_instance
   the_avalon_gestion_bp_0_avalon_slave_0 : avalon_gestion_bp_0_avalon_slave_0_arbitrator
     port map(
@@ -3832,6 +4179,7 @@ begin
       Button_s1_readdata_from_sa => Button_s1_readdata_from_sa,
       LED_s1_readdata_from_sa => LED_s1_readdata_from_sa,
       avalon_anemo_0_avalon_slave_0_readdata_from_sa => avalon_anemo_0_avalon_slave_0_readdata_from_sa,
+      avalon_compas_0_avalon_slave_0_readdata_from_sa => avalon_compas_0_avalon_slave_0_readdata_from_sa,
       avalon_gestion_bp_0_avalon_slave_0_readdata_from_sa => avalon_gestion_bp_0_avalon_slave_0_readdata_from_sa,
       avalon_pwm_0_avalon_slave_0_readdata_from_sa => avalon_pwm_0_avalon_slave_0_readdata_from_sa,
       clk => clk_0,
@@ -3839,6 +4187,7 @@ begin
       cpu_0_data_master_granted_Button_s1 => cpu_0_data_master_granted_Button_s1,
       cpu_0_data_master_granted_LED_s1 => cpu_0_data_master_granted_LED_s1,
       cpu_0_data_master_granted_avalon_anemo_0_avalon_slave_0 => cpu_0_data_master_granted_avalon_anemo_0_avalon_slave_0,
+      cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0 => cpu_0_data_master_granted_avalon_compas_0_avalon_slave_0,
       cpu_0_data_master_granted_avalon_gestion_bp_0_avalon_slave_0 => cpu_0_data_master_granted_avalon_gestion_bp_0_avalon_slave_0,
       cpu_0_data_master_granted_avalon_pwm_0_avalon_slave_0 => cpu_0_data_master_granted_avalon_pwm_0_avalon_slave_0,
       cpu_0_data_master_granted_cpu_0_jtag_debug_module => cpu_0_data_master_granted_cpu_0_jtag_debug_module,
@@ -3848,6 +4197,7 @@ begin
       cpu_0_data_master_qualified_request_Button_s1 => cpu_0_data_master_qualified_request_Button_s1,
       cpu_0_data_master_qualified_request_LED_s1 => cpu_0_data_master_qualified_request_LED_s1,
       cpu_0_data_master_qualified_request_avalon_anemo_0_avalon_slave_0 => cpu_0_data_master_qualified_request_avalon_anemo_0_avalon_slave_0,
+      cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0 => cpu_0_data_master_qualified_request_avalon_compas_0_avalon_slave_0,
       cpu_0_data_master_qualified_request_avalon_gestion_bp_0_avalon_slave_0 => cpu_0_data_master_qualified_request_avalon_gestion_bp_0_avalon_slave_0,
       cpu_0_data_master_qualified_request_avalon_pwm_0_avalon_slave_0 => cpu_0_data_master_qualified_request_avalon_pwm_0_avalon_slave_0,
       cpu_0_data_master_qualified_request_cpu_0_jtag_debug_module => cpu_0_data_master_qualified_request_cpu_0_jtag_debug_module,
@@ -3858,6 +4208,7 @@ begin
       cpu_0_data_master_read_data_valid_Button_s1 => cpu_0_data_master_read_data_valid_Button_s1,
       cpu_0_data_master_read_data_valid_LED_s1 => cpu_0_data_master_read_data_valid_LED_s1,
       cpu_0_data_master_read_data_valid_avalon_anemo_0_avalon_slave_0 => cpu_0_data_master_read_data_valid_avalon_anemo_0_avalon_slave_0,
+      cpu_0_data_master_read_data_valid_avalon_compas_0_avalon_slave_0 => cpu_0_data_master_read_data_valid_avalon_compas_0_avalon_slave_0,
       cpu_0_data_master_read_data_valid_avalon_gestion_bp_0_avalon_slave_0 => cpu_0_data_master_read_data_valid_avalon_gestion_bp_0_avalon_slave_0,
       cpu_0_data_master_read_data_valid_avalon_pwm_0_avalon_slave_0 => cpu_0_data_master_read_data_valid_avalon_pwm_0_avalon_slave_0,
       cpu_0_data_master_read_data_valid_cpu_0_jtag_debug_module => cpu_0_data_master_read_data_valid_cpu_0_jtag_debug_module,
@@ -3867,6 +4218,7 @@ begin
       cpu_0_data_master_requests_Button_s1 => cpu_0_data_master_requests_Button_s1,
       cpu_0_data_master_requests_LED_s1 => cpu_0_data_master_requests_LED_s1,
       cpu_0_data_master_requests_avalon_anemo_0_avalon_slave_0 => cpu_0_data_master_requests_avalon_anemo_0_avalon_slave_0,
+      cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0 => cpu_0_data_master_requests_avalon_compas_0_avalon_slave_0,
       cpu_0_data_master_requests_avalon_gestion_bp_0_avalon_slave_0 => cpu_0_data_master_requests_avalon_gestion_bp_0_avalon_slave_0,
       cpu_0_data_master_requests_avalon_pwm_0_avalon_slave_0 => cpu_0_data_master_requests_avalon_pwm_0_avalon_slave_0,
       cpu_0_data_master_requests_cpu_0_jtag_debug_module => cpu_0_data_master_requests_cpu_0_jtag_debug_module,
@@ -3878,6 +4230,7 @@ begin
       d1_Button_s1_end_xfer => d1_Button_s1_end_xfer,
       d1_LED_s1_end_xfer => d1_LED_s1_end_xfer,
       d1_avalon_anemo_0_avalon_slave_0_end_xfer => d1_avalon_anemo_0_avalon_slave_0_end_xfer,
+      d1_avalon_compas_0_avalon_slave_0_end_xfer => d1_avalon_compas_0_avalon_slave_0_end_xfer,
       d1_avalon_gestion_bp_0_avalon_slave_0_end_xfer => d1_avalon_gestion_bp_0_avalon_slave_0_end_xfer,
       d1_avalon_pwm_0_avalon_slave_0_end_xfer => d1_avalon_pwm_0_avalon_slave_0_end_xfer,
       d1_cpu_0_jtag_debug_module_end_xfer => d1_cpu_0_jtag_debug_module_end_xfer,
@@ -4151,6 +4504,9 @@ component mon_sopc is
                  -- the_avalon_anemo_0
                     signal in_freq_anemometre_to_the_avalon_anemo_0 : IN STD_LOGIC;
 
+                 -- the_avalon_compas_0
+                    signal in_pwm_compas_to_the_avalon_compas_0 : IN STD_LOGIC;
+
                  -- the_avalon_gestion_bp_0
                     signal BP_Babord_to_the_avalon_gestion_bp_0 : IN STD_LOGIC;
                     signal BP_STBY_to_the_avalon_gestion_bp_0 : IN STD_LOGIC;
@@ -4172,6 +4528,7 @@ end component mon_sopc;
                 signal clk_0 :  STD_LOGIC;
                 signal in_freq_anemometre_to_the_avalon_anemo_0 :  STD_LOGIC;
                 signal in_port_to_the_Button :  STD_LOGIC_VECTOR (1 DOWNTO 0);
+                signal in_pwm_compas_to_the_avalon_compas_0 :  STD_LOGIC;
                 signal jtag_uart_0_avalon_jtag_slave_dataavailable_from_sa :  STD_LOGIC;
                 signal jtag_uart_0_avalon_jtag_slave_readyfordata_from_sa :  STD_LOGIC;
                 signal ledBabord_from_the_avalon_gestion_bp_0 :  STD_LOGIC;
@@ -4206,6 +4563,7 @@ begin
       clk_0 => clk_0,
       in_freq_anemometre_to_the_avalon_anemo_0 => in_freq_anemometre_to_the_avalon_anemo_0,
       in_port_to_the_Button => in_port_to_the_Button,
+      in_pwm_compas_to_the_avalon_compas_0 => in_pwm_compas_to_the_avalon_compas_0,
       reset_n => reset_n
     );
 

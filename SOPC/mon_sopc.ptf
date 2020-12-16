@@ -542,6 +542,12 @@ SYSTEM mon_sopc
                span = "0x00000008";
                is_bridge = "0";
             }
+            Entry avalon_compas_0/avalon_slave_0
+            {
+               address = "0x00011058";
+               span = "0x00000008";
+               is_bridge = "0";
+            }
          }
       }
       WIZARD_SCRIPT_ARGUMENTS 
@@ -2170,7 +2176,7 @@ SYSTEM mon_sopc
          Has_Clock = "1";
          View 
          {
-            Settings_Summary = "System ID (at last Generate):<br> <b>00000000</b>    (unique ID tag) <br> <b>5FD64607</b> (timestamp: Sun Dec 13, 2020 @10:49 AM)";
+            Settings_Summary = "System ID (at last Generate):<br> <b>00000000</b>    (unique ID tag) <br> <b>5FDA5897</b> (timestamp: Wed Dec 16, 2020 @12:57 AM)";
             MESSAGES 
             {
             }
@@ -2179,7 +2185,7 @@ SYSTEM mon_sopc
       WIZARD_SCRIPT_ARGUMENTS 
       {
          id = "0u";
-         timestamp = "1607878151u";
+         timestamp = "1608145047u";
          regenerate_values = "0";
          MAKE 
          {
@@ -2188,7 +2194,7 @@ SYSTEM mon_sopc
                verifysysid 
                {
                   All_Depends_On = "0";
-                  Command = "nios2-download $(JTAG_CABLE)                                --sidp=0x00011048 --id=0 --timestamp=1607878151";
+                  Command = "nios2-download $(JTAG_CABLE)                                --sidp=0x00011048 --id=0 --timestamp=1608145047";
                   Is_Phony = "1";
                   Target_File = "dummy_verifysysid_file";
                }
@@ -2651,6 +2657,142 @@ SYSTEM mon_sopc
       HDL_INFO 
       {
          Simulation_HDL_Files = "__PROJECT_DIRECTORY__/avalon_gestion_bp/avalon_gestion_bp.vhd,__PROJECT_DIRECTORY__/avalon_gestion_bp_0.vhd";
+      }
+      WIZARD_SCRIPT_ARGUMENTS 
+      {
+      }
+   }
+   MODULE avalon_compas_0
+   {
+      SLAVE avalon_slave_0
+      {
+         PORT_WIRING 
+         {
+            PORT clk
+            {
+               type = "clk";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT reset_n
+            {
+               type = "reset_n";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT chipselect
+            {
+               type = "chipselect";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT write_n
+            {
+               type = "write_n";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT address
+            {
+               type = "address";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT writedata
+            {
+               type = "writedata";
+               width = "32";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT readdata
+            {
+               type = "readdata";
+               width = "32";
+               direction = "output";
+               Is_Enabled = "1";
+            }
+         }
+         SYSTEM_BUILDER_INFO 
+         {
+            Bus_Type = "avalon";
+            Write_Wait_States = "0cycles";
+            Read_Wait_States = "1cycles";
+            Hold_Time = "0cycles";
+            Setup_Time = "0cycles";
+            Is_Printable_Device = "0";
+            Address_Alignment = "dynamic";
+            Well_Behaved_Waitrequest = "0";
+            Is_Nonvolatile_Storage = "0";
+            Address_Span = "8";
+            Read_Latency = "0";
+            Is_Memory_Device = "0";
+            Maximum_Pending_Read_Transactions = "0";
+            Minimum_Uninterrupted_Run_Length = "1";
+            Accepts_Internal_Connections = "1";
+            Write_Latency = "0";
+            Is_Flash = "0";
+            Data_Width = "32";
+            Address_Width = "1";
+            Maximum_Burst_Size = "1";
+            Register_Incoming_Signals = "0";
+            Register_Outgoing_Signals = "0";
+            Interleave_Bursts = "0";
+            Linewrap_Bursts = "0";
+            Burst_On_Burst_Boundaries_Only = "0";
+            Always_Burst_Max_Burst = "0";
+            Is_Big_Endian = "0";
+            Is_Enabled = "1";
+            MASTERED_BY cpu_0/data_master
+            {
+               priority = "1";
+               Offset_Address = "0x00011058";
+            }
+            Base_Address = "0x00011058";
+            Address_Group = "0";
+            IRQ_MASTER cpu_0/data_master
+            {
+               IRQ_Number = "NC";
+            }
+         }
+      }
+      PORT_WIRING 
+      {
+         PORT in_pwm_compas
+         {
+            type = "export";
+            width = "1";
+            direction = "input";
+            Is_Enabled = "1";
+         }
+      }
+      class = "no_legacy_module";
+      class_version = "7.08111";
+      gtf_class_name = "avalon_compas";
+      gtf_class_version = "1.0";
+      SYSTEM_BUILDER_INFO 
+      {
+         Do_Not_Generate = "1";
+         Instantiate_In_System_Module = "1";
+         Is_Bridge = "0";
+         Is_Enabled = "1";
+         Clock_Source = "clk_0";
+         Has_Clock = "1";
+         View 
+         {
+            MESSAGES 
+            {
+            }
+         }
+      }
+      HDL_INFO 
+      {
+         Simulation_HDL_Files = "__PROJECT_DIRECTORY__/avalon_compas/avalon_compas.vhd,__PROJECT_DIRECTORY__/avalon_compas_0.vhd";
       }
       WIZARD_SCRIPT_ARGUMENTS 
       {

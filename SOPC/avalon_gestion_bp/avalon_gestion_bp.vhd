@@ -52,7 +52,7 @@ begin
 	case etat is
 	when 0 =>
 		if BP_Babord='0' then 
-		etat:=1; codeFonction <="0001";
+		etat:=1; codeFonction <="0001"; 
 		end if;
 		if BP_Tribord='0' then 
 		etat:=2; codeFonction <="0010";

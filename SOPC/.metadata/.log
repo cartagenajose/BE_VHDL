@@ -885,3 +885,265 @@ Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.
 
 !ENTRY com.altera.sbtgui.launch 1 0 2020-12-13 13:25:54.338
 !MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+!SESSION 2020-12-16 06:48:49.407 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 06:49:47.018
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 06:49:51.018
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:02:19.639
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:02:23.767
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:06:34.477
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:06:38.601
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+!SESSION 2020-12-16 07:30:30.422 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:31:43.258
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:31:47.461
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:33:35.502
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:33:39.628
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:44:25.447
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:44:29.713
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+!SESSION 2020-12-16 07:48:55.149 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:50:08.136
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:50:12.349
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:52:59.858
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 07:53:04.268
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 09:02:25.733
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 09:02:30.122
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2020-12-16 09:50:12.308
+!MESSAGE The system console model is invalid. Cannot launch.
+!SESSION 2020-12-16 09:51:07.218 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 09:52:29.819
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 09:52:33.525
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 09:54:10.075
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 09:54:13.806
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 09:55:52.170
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 09:55:55.885
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 09:57:13.598
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 09:57:17.504
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 10:03:40.292
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 10:03:44.015
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 10:06:06.017
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 10:06:09.753
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 10:10:28.810
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 10:10:32.555
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 10:17:32.647
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 10:17:36.557
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 10:17:50.285
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 10:17:54.053
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+!SESSION 2020-12-16 10:55:21.359 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 11:00:18.879
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 11:00:22.686
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 11:31:20.333
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 11:31:24.169
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+!SESSION 2020-12-16 11:57:10.225 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 11:59:56.729
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 12:00:00.922
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+!SESSION 2020-12-16 12:04:51.818 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 12:06:10.245
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 12:06:14.829
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+!SESSION 2020-12-16 12:07:56.533 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 12:09:30.002
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1607878151]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 12:09:34.710
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1607878151 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+!SESSION 2020-12-16 13:08:10.835 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:15:54.487
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1608145047]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:15:58.635
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1608145047 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:23:02.920
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1608145047]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:23:07.123
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1608145047 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+!SESSION 2020-12-16 13:28:14.990 -----------------------------------------------
+eclipse.buildId=M20100909-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:29:29.725
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1608145047]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:29:34.060
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1608145047 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:33:33.684
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1608145047]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:33:37.938
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1608145047 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:37:23.990
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1608145047]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:37:28.179
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1608145047 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:39:33.961
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:39:35.459
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1608145047]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:39:39.671
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1608145047 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:43:59.260
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1608145047]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:44:03.318
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1608145047 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:51:09.094
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x11048 --id=0x0 --timestamp=1608145047]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-12-16 13:51:13.101
+!MESSAGE Executing: [C:\WINDOWS\system32\cmd.exe, /C, C:/altera/11.1sp2/quartus\bin\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x11048 --id=0x0 --timestamp=1608145047 /cygdrive/c/Users/Sebastian/Documents/BE_VHDL/SOPC/software/test_sopc/test_sopc.elf]

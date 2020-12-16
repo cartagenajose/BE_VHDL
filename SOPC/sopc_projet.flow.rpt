@@ -1,5 +1,5 @@
 Flow report for sopc_projet
-Sun Dec 13 13:24:39 2020
+Wed Dec 16 13:27:27 2020
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -38,17 +38,17 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Flow Summary                                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Flow Status                        ; Successful - Sun Dec 13 13:24:35 2020         ;
+; Flow Status                        ; Successful - Wed Dec 16 13:27:23 2020         ;
 ; Quartus II 32-bit Version          ; 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; sopc_projet                                   ;
 ; Top-level Entity Name              ; sopc_projet                                   ;
 ; Family                             ; Cyclone IV E                                  ;
 ; Device                             ; EP4CE22F17C6                                  ;
 ; Timing Models                      ; Final                                         ;
-; Total logic elements               ; 2,741 / 22,320 ( 12 % )                       ;
-;     Total combinational functions  ; 2,574 / 22,320 ( 12 % )                       ;
-;     Dedicated logic registers      ; 959 / 22,320 ( 4 % )                          ;
-; Total registers                    ; 959                                           ;
+; Total logic elements               ; 2,822 / 22,320 ( 13 % )                       ;
+;     Total combinational functions  ; 2,656 / 22,320 ( 12 % )                       ;
+;     Dedicated logic registers      ; 1,013 / 22,320 ( 5 % )                        ;
+; Total registers                    ; 1013                                          ;
 ; Total pins                         ; 18 / 154 ( 12 % )                             ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 175,104 / 608,256 ( 29 % )                    ;
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/13/2020 13:23:57 ;
+; Start date & time ; 12/16/2020 13:26:37 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; sopc_projet         ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+---------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 171921334613488.160788743712980       ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 171921334613488.160814679606428       ; --            ; --          ; --         ;
 ; IP_TOOL_ENV                         ; sopc                                  ; --            ; mon_sopc    ; --         ;
 ; IP_TOOL_NAME                        ; sopc                                  ; --            ; mon_sopc    ; --         ;
 ; IP_TOOL_VERSION                     ; 11.1sp2                               ; --            ; mon_sopc    ; --         ;
@@ -85,7 +85,7 @@ applicable agreement for further details.
 ; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --            ; --          ; Top        ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                   ; --            ; --          ; --         ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --         ;
-; SOPC_BUILDER_SIGNATURE_ID           ; 9C5C8E1435F0000001765D019CAE          ; --            ; --          ; --         ;
+; SOPC_BUILDER_SIGNATURE_ID           ; 9C5C8E1435F0000001766CEA221E          ; --            ; --          ; --         ;
 +-------------------------------------+---------------------------------------+---------------+-------------+------------+
 
 
@@ -94,11 +94,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:18     ; 1.0                     ; 415 MB              ; 00:00:18                           ;
-; Fitter                    ; 00:00:13     ; 1.0                     ; 476 MB              ; 00:00:13                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 358 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:06     ; 1.0                     ; 386 MB              ; 00:00:06                           ;
-; Total                     ; 00:00:39     ; --                      ; --                  ; 00:00:39                           ;
+; Analysis & Synthesis      ; 00:00:23     ; 1.0                     ; 414 MB              ; 00:00:23                           ;
+; Fitter                    ; 00:00:15     ; 1.0                     ; 468 MB              ; 00:00:15                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 359 MB              ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:07     ; 1.0                     ; 386 MB              ; 00:00:07                           ;
+; Total                     ; 00:00:48     ; --                      ; --                  ; 00:00:48                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

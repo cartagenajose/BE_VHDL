@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Sun Dec 13 13:24:16 2020
+Analysis & Synthesis Status : Successful - Wed Dec 16 13:27:01 2020
 Quartus II 32-bit Version : 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition
 Revision Name : sopc_projet
 Top-level Entity Name : sopc_projet
 Family : Cyclone IV E
-Total logic elements : 2,786
-    Total combinational functions : 2,571
-    Dedicated logic registers : 967
-Total registers : 967
+Total logic elements : 2,880
+    Total combinational functions : 2,653
+    Dedicated logic registers : 1,021
+Total registers : 1021
 Total pins : 18
 Total virtual pins : 0
 Total memory bits : 175,104

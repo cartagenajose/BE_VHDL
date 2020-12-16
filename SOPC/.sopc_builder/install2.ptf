@@ -1,7 +1,7 @@
 PACKAGE install2 
 {
    # This file informs the Nios II IDE of non-legacy component paths.
-   # Generated 2020.12.13.10:49:15
+   # Generated 2020.12.16.12:57:32
    COMPONENT alt_interlaken_hp_mac 
    {
       VERSION 11.1 
@@ -2429,6 +2429,13 @@ PACKAGE install2
       VERSION 1.0 
       {
          local = "C:/Users/Sebastian/Documents/BE_VHDL/SOPC/avalon_anemo";
+      }
+   }
+   COMPONENT avalon_compas 
+   {
+      VERSION 1.0 
+      {
+         local = "C:/Users/Sebastian/Documents/BE_VHDL/SOPC/avalon_compas";
       }
    }
    COMPONENT avalon_gestion_bp 

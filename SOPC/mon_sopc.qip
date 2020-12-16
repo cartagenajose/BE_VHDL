@@ -15,12 +15,16 @@ set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) avalon_pwm
 set_global_assignment -name TCL_FILE [file join $::quartus(qip_path) avalon_anemo/avalon_anemo_hw.tcl]
 set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) avalon_anemo/avalon_anemo.vhd]
 set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) avalon_anemo_0.vhd]
-# null
 # avalon_gestion_bp_0
 set_global_assignment -name TCL_FILE [file join $::quartus(qip_path) avalon_gestion_bp/avalon_gestion_bp_hw.tcl]
 set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) avalon_gestion_bp/avalon_gestion_bp.vhd]
 set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) avalon_gestion_bp_0.vhd]
-set_global_assignment -name SOPC_BUILDER_SIGNATURE_ID "9C5C8E1435F0000001765D019CAE"
+# null
+# avalon_compas_0
+set_global_assignment -name TCL_FILE [file join $::quartus(qip_path) avalon_compas/avalon_compas_hw.tcl]
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) avalon_compas/avalon_compas.vhd]
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) avalon_compas_0.vhd]
+set_global_assignment -name SOPC_BUILDER_SIGNATURE_ID "9C5C8E1435F0000001766CEA221E"
 set_global_assignment -entity "mon_sopc" -name IP_TOOL_NAME "sopc"
 set_global_assignment -entity "mon_sopc" -name IP_TOOL_VERSION "11.1sp2"
 set_global_assignment -entity "mon_sopc" -name IP_TOOL_ENV "sopc"

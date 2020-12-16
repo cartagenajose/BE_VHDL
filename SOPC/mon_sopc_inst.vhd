@@ -13,6 +13,7 @@
       clk_0 => clk_0,
       in_freq_anemometre_to_the_avalon_anemo_0 => in_freq_anemometre_to_the_avalon_anemo_0,
       in_port_to_the_Button => in_port_to_the_Button,
+      in_pwm_compas_to_the_avalon_compas_0 => in_pwm_compas_to_the_avalon_compas_0,
       reset_n => reset_n
     );
 

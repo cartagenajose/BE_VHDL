@@ -90,26 +90,34 @@
 #define control (unsigned int*) (AVALON_PWM_0_BASE+8)
 #define configbutton (unsigned int*) AVALON_GESTION_BP_0_BASE
 #define code (unsigned int*) (AVALON_GESTION_BP_0_BASE+4)
-
+#define compas (unsigned int*) (AVALON_COMPAS_0_BASE+4)
+#define compas_config (unsigned int*) AVALON_COMPAS_0_BASE
 
 
 int main()
 { 
   alt_putstr("Hello from Nios II!\n");
-*freq=0x61A80;
-*duty=0x30D40;
+//*freq=0x61A80; // pour 125 km/h
+//*duty=0x30D40; // pour a = 50%
+//*freq = 0xF4240;
+//*duty = 0x7A120;
+
 *control=0x3;
 
 *configbutton = 1;
+*compas_config = 3;
+
   /* Event loop never exits. */
   while (1){
+	  *compas = *compas&0x1ff;
+      //*anemo = *anemo&0x3ff;
+      printf("Data: 0x%08X\n", *compas);
 
 
-      *anemo = *anemo&0x3ff;
-      printf("Data: 0x%08X\n", *anemo);
-      printf("Boutons: 0x%08X\n", *code);
-      usleep(25000);
-  }
+
+     //printf("Boutons: 0x%08X\n", *code);
+     usleep(100000);
+  };
 
 
   return 0;

@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Dec 13, 2020 1:25:34 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1607887534782</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Dec 16, 2020 1:11:25 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1608145885189</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\Sebastian\Documents\BE_VHDL\SOPC\software\test_sopc_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>C:\Users\Sebastian\Documents\BE_VHDL\SOPC\mon_sopc.sopcinfo</SopcDesignFile>
@@ -895,6 +895,12 @@
         <MemoryMap>
                 <slaveDescriptor>avalon_gestion_bp_0</slaveDescriptor>
                 <addressRange>0x00011050 - 0x00011057</addressRange>
+                <addressSpan>8</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>avalon_compas_0</slaveDescriptor>
+                <addressRange>0x00011058 - 0x0001105F</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>

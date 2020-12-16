@@ -26,6 +26,14 @@
          type = "int";
       }
    }
+   element avalon_compas_0
+   {
+      datum _sortIndex
+      {
+         value = "10";
+         type = "int";
+      }
+   }
    element avalon_gestion_bp_0
    {
       datum _sortIndex
@@ -63,6 +71,14 @@
       datum baseAddress
       {
          value = "69680";
+         type = "long";
+      }
+   }
+   element avalon_compas_0.avalon_slave_0
+   {
+      datum baseAddress
+      {
+         value = "69720";
          type = "long";
       }
    }
@@ -130,19 +146,19 @@
          type = "int";
       }
    }
-   element Button.s1
-   {
-      datum baseAddress
-      {
-         value = "69648";
-         type = "long";
-      }
-   }
    element LED.s1
    {
       datum baseAddress
       {
          value = "69632";
+         type = "long";
+      }
+   }
+   element Button.s1
+   {
+      datum baseAddress
+      {
+         value = "69648";
          type = "long";
       }
    }
@@ -176,8 +192,8 @@
  <parameter name="maxAdditionalLatency" value="0" />
  <parameter name="projectName" value="sopc_projet.qpf" />
  <parameter name="sopcBorderPoints" value="true" />
- <parameter name="systemHash" value="-20830747272" />
- <parameter name="timeStamp" value="1607878151022" />
+ <parameter name="systemHash" value="-19648838557" />
+ <parameter name="timeStamp" value="1608145047211" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <module kind="clock_source" version="11.1" enabled="1" name="clk_0">
   <parameter name="clockFrequency" value="50000000" />
@@ -278,7 +294,7 @@
   <parameter name="dcache_numTCDM" value="_0" />
   <parameter name="dcache_lineSize" value="_32" />
   <parameter name="dcache_bursts" value="false" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x8000' end='0xD000' /><slave name='cpu_0.jtag_debug_module' start='0x10800' end='0x11000' /><slave name='LED.s1' start='0x11000' end='0x11010' /><slave name='Button.s1' start='0x11010' end='0x11020' /><slave name='avalon_pwm_0.avalon_slave_0' start='0x11020' end='0x11030' /><slave name='avalon_anemo_0.avalon_slave_0' start='0x11030' end='0x11040' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x11040' end='0x11048' /><slave name='sysid_0.control_slave' start='0x11048' end='0x11050' /><slave name='avalon_gestion_bp_0.avalon_slave_0' start='0x11050' end='0x11058' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x8000' end='0xD000' /><slave name='cpu_0.jtag_debug_module' start='0x10800' end='0x11000' /><slave name='LED.s1' start='0x11000' end='0x11010' /><slave name='Button.s1' start='0x11010' end='0x11020' /><slave name='avalon_pwm_0.avalon_slave_0' start='0x11020' end='0x11030' /><slave name='avalon_anemo_0.avalon_slave_0' start='0x11030' end='0x11040' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x11040' end='0x11048' /><slave name='sysid_0.control_slave' start='0x11048' end='0x11050' /><slave name='avalon_gestion_bp_0.avalon_slave_0' start='0x11050' end='0x11058' /><slave name='avalon_compas_0.avalon_slave_0' start='0x11058' end='0x11060' /></address-map>]]></parameter>
   <parameter name="dataAddrWidth" value="17" />
   <parameter name="customInstSlavesSystemInfo" value="&lt;info/&gt;" />
   <parameter name="cpuReset" value="false" />
@@ -370,7 +386,10 @@
    kind="avalon_gestion_bp"
    version="1.0"
    enabled="1"
-   name="avalon_gestion_bp_0" />
+   name="avalon_gestion_bp_0">
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="50000000" />
+ </module>
+ <module kind="avalon_compas" version="1.0" enabled="1" name="avalon_compas_0" />
  <connection kind="clock" version="11.1" start="clk_0.clk" end="cpu_0.clk" />
  <connection
    kind="avalon"
@@ -486,5 +505,18 @@
    end="avalon_gestion_bp_0.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x00011050" />
+ </connection>
+ <connection
+   kind="clock"
+   version="11.1"
+   start="clk_0.clk"
+   end="avalon_compas_0.clock" />
+ <connection
+   kind="avalon"
+   version="11.1"
+   start="cpu_0.data_master"
+   end="avalon_compas_0.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00011058" />
  </connection>
 </system>
