@@ -280,19 +280,19 @@ int main()
     8068:	dfc00015 	stw	ra,0(sp)
   alt_putstr("Hello from Nios II!\n");
     806c:	0008bb40 	call	8bb4 <alt_putstr>
-//*freq=0x61A80; // pour 125 km/h
-//*duty=0x30D40; // pour a = 50%
-  *freq = 0xF4240;
-    8070:	00c003f4 	movhi	r3,15
-    8074:	18d09004 	addi	r3,r3,16960
+*freq=0x61A80; // pour 125 km/h
+    8070:	00c001b4 	movhi	r3,6
+    8074:	18c6a004 	addi	r3,r3,6784
     8078:	00800074 	movhi	r2,1
     807c:	10840804 	addi	r2,r2,4128
     8080:	10c00015 	stw	r3,0(r2)
-  *duty = 0x7A120;
-    8084:	00c00234 	movhi	r3,8
-    8088:	18e84804 	addi	r3,r3,-24288
+*duty=0x30D40; // pour a = 50%
+    8084:	00c000f4 	movhi	r3,3
+    8088:	18c35004 	addi	r3,r3,3392
     808c:	10800104 	addi	r2,r2,4
     8090:	10c00015 	stw	r3,0(r2)
+//*freq = 0xF4240;
+//*duty = 0x7A120;
 
 *control=0x3;
 
@@ -300,10 +300,10 @@ int main()
     8094:	10800b04 	addi	r2,r2,44
     8098:	00c00044 	movi	r3,1
     809c:	10c00015 	stw	r3,0(r2)
-//*freq=0x61A80; // pour 125 km/h
-//*duty=0x30D40; // pour a = 50%
-  *freq = 0xF4240;
-  *duty = 0x7A120;
+*freq=0x61A80; // pour 125 km/h
+*duty=0x30D40; // pour a = 50%
+//*freq = 0xF4240;
+//*duty = 0x7A120;
 
 *control=0x3;
     80a0:	010000c4 	movi	r4,3
@@ -312,48 +312,44 @@ int main()
 *compas_config = 3;
     80a4:	10800204 	addi	r2,r2,8
     80a8:	11000015 	stw	r4,0(r2)
-//*freq=0x61A80; // pour 125 km/h
-//*duty=0x30D40; // pour a = 50%
-  *freq = 0xF4240;
-  *duty = 0x7A120;
+*freq=0x61A80; // pour 125 km/h
+*duty=0x30D40; // pour a = 50%
+//*freq = 0xF4240;
+//*duty = 0x7A120;
 
 *control=0x3;
     80ac:	10bff404 	addi	r2,r2,-48
     80b0:	11000015 	stw	r4,0(r2)
-*configbutton = 1;
-*compas_config = 3;
 
   /* Event loop never exits. */
   while (1){
-	  *compas = *compas&0x1ff;
+	  //*compas = *compas&0x1ff;
+      //printf("Data: 0x%08X\n", *compas);
+      *anemo = *anemo&0x3ff;
     80b4:	00c00074 	movhi	r3,1
-    80b8:	18c41704 	addi	r3,r3,4188
+    80b8:	18c40c04 	addi	r3,r3,4144
     80bc:	18800017 	ldw	r2,0(r3)
-      //*anemo = *anemo&0x3ff;
-      printf("Data: 0x%08X\n", *compas);
+      printf("Data: 0x%08X\n", *anemo);
     80c0:	01000074 	movhi	r4,1
     80c4:	21235d04 	addi	r4,r4,-29324
-*configbutton = 1;
-*compas_config = 3;
 
   /* Event loop never exits. */
   while (1){
-	  *compas = *compas&0x1ff;
-    80c8:	10807fcc 	andi	r2,r2,511
-      //*anemo = *anemo&0x3ff;
-      printf("Data: 0x%08X\n", *compas);
+	  //*compas = *compas&0x1ff;
+      //printf("Data: 0x%08X\n", *compas);
+      *anemo = *anemo&0x3ff;
+    80c8:	1080ffcc 	andi	r2,r2,1023
+      printf("Data: 0x%08X\n", *anemo);
     80cc:	100b883a 	mov	r5,r2
-*configbutton = 1;
-*compas_config = 3;
 
   /* Event loop never exits. */
   while (1){
-	  *compas = *compas&0x1ff;
+	  //*compas = *compas&0x1ff;
+      //printf("Data: 0x%08X\n", *compas);
+      *anemo = *anemo&0x3ff;
     80d0:	18800015 	stw	r2,0(r3)
-      //*anemo = *anemo&0x3ff;
-      printf("Data: 0x%08X\n", *compas);
+      printf("Data: 0x%08X\n", *anemo);
     80d4:	00080e80 	call	80e8 <printf>
-
 
 
      //printf("Boutons: 0x%08X\n", *code);

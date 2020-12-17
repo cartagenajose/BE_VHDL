@@ -1,0 +1,24 @@
+|TESTPWM
+clk => counter_PWM[19].CLK
+clk => counter_PWM[18].CLK
+clk => counter_PWM[17].CLK
+clk => counter_PWM[16].CLK
+clk => counter_PWM[15].CLK
+clk => counter_PWM[14].CLK
+clk => counter_PWM[13].CLK
+clk => counter_PWM[12].CLK
+clk => counter_PWM[11].CLK
+clk => counter_PWM[10].CLK
+clk => counter_PWM[9].CLK
+clk => counter_PWM[8].CLK
+clk => counter_PWM[7].CLK
+clk => counter_PWM[6].CLK
+clk => counter_PWM[5].CLK
+clk => counter_PWM[4].CLK
+clk => counter_PWM[3].CLK
+clk => counter_PWM[2].CLK
+clk => counter_PWM[1].CLK
+clk => counter_PWM[0].CLK
+PWMOut <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+
+

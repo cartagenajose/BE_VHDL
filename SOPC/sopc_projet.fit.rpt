@@ -1,5 +1,5 @@
 Fitter report for sopc_projet
-Wed Dec 16 13:27:17 2020
+Thu Dec 17 01:11:28 2020
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -71,7 +71,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                     ;
 +------------------------------------+-----------------------------------------------+
-; Fitter Status                      ; Successful - Wed Dec 16 13:27:17 2020         ;
+; Fitter Status                      ; Successful - Thu Dec 17 01:11:28 2020         ;
 ; Quartus II 32-bit Version          ; 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; sopc_projet                                   ;
 ; Top-level Entity Name              ; sopc_projet                                   ;
@@ -3046,7 +3046,7 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Fitter
     Info: Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
-    Info: Processing started: Wed Dec 16 13:27:02 2020
+    Info: Processing started: Thu Dec 17 01:11:18 2020
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off sopc_projet -c sopc_projet
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (119006): Selected device EP4CE22F17C6 for design "sopc_projet"
@@ -3226,7 +3226,7 @@ Info (176215): I/O bank details before I/O pin placement
         Info (176213): I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  12 pins available
         Info (176213): I/O bank number 7 does not use VREF pins and has 2.5V VCCIO pins. 4 total pin(s) used --  20 pins available
         Info (176213): I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  23 pins available
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:03
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
@@ -3242,9 +3242,9 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info: Quartus II 32-bit Fitter was successful. 0 errors, 18 warnings
-    Info: Peak virtual memory: 468 megabytes
-    Info: Processing ended: Wed Dec 16 13:27:19 2020
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:17
+    Info: Peak virtual memory: 469 megabytes
+    Info: Processing ended: Thu Dec 17 01:11:30 2020
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:11
 
 

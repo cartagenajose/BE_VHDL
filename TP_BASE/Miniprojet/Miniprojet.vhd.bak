@@ -1,0 +1,22 @@
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY diviseur is 
+ port ( CLK : IN  std logic;
+        S   : out std logic; ) 
+  end diviseur;
+  
+Architecture arch_diviseur of diviseur is 
+ signal un,de integrer  ;
+    BEGIN 
+    
+     PROCESS (diviseur,div)
+           begin 
+           if (un=1 or de=1) then s<='1';
+           else s<='0';
+           end if; 
+     end process; 
+           
+ 
+END diviseur;

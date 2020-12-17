@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for sopc_projet
-Wed Dec 16 13:27:28 2020
+Thu Dec 17 01:11:36 2020
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -136,7 +136,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; cpu_0.sdc     ; OK     ; Wed Dec 16 13:27:22 2020 ;
+; cpu_0.sdc     ; OK     ; Thu Dec 17 01:11:32 2020 ;
 +---------------+--------+--------------------------+
 
 
@@ -2467,7 +2467,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
-    Info: Processing started: Wed Dec 16 13:27:20 2020
+    Info: Processing started: Thu Dec 17 01:11:31 2020
 Info: Command: quartus_sta sopc_projet -c sopc_projet
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -2644,8 +2644,8 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 35 warnings
     Info: Peak virtual memory: 386 megabytes
-    Info: Processing ended: Wed Dec 16 13:27:28 2020
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Processing ended: Thu Dec 17 01:11:36 2020
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:05
 
 

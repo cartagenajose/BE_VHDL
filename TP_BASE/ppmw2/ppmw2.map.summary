@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Sep 14 09:30:20 2020
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition
+Revision Name : ppmw2
+Top-level Entity Name : ppmw2
+Family : Cyclone II
+Total logic elements : 24
+    Total combinational functions : 24
+    Dedicated logic registers : 8
+Total registers : 8
+Total pins : 6
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

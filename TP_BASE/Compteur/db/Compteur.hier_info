@@ -1,0 +1,5 @@
+|Compteur
+RESET => ~NO_FANOUT~
+CLK => ~NO_FANOUT~
+
+

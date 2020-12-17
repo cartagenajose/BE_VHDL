@@ -1,0 +1,31 @@
+|div
+CLK => reg[25].CLK
+CLK => reg[24].CLK
+CLK => reg[23].CLK
+CLK => reg[22].CLK
+CLK => reg[21].CLK
+CLK => reg[20].CLK
+CLK => reg[19].CLK
+CLK => reg[18].CLK
+CLK => reg[17].CLK
+CLK => reg[16].CLK
+CLK => reg[15].CLK
+CLK => reg[14].CLK
+CLK => reg[13].CLK
+CLK => reg[12].CLK
+CLK => reg[11].CLK
+CLK => reg[10].CLK
+CLK => reg[9].CLK
+CLK => reg[8].CLK
+CLK => reg[7].CLK
+CLK => reg[6].CLK
+CLK => reg[5].CLK
+CLK => reg[4].CLK
+CLK => reg[3].CLK
+CLK => reg[2].CLK
+CLK => reg[1].CLK
+CLK => reg[0].CLK
+CLK => Ssig.CLK
+S <= Ssig.DB_MAX_OUTPUT_PORT_TYPE
+
+

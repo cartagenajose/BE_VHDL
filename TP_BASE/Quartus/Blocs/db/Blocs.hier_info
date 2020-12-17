@@ -1,0 +1,101 @@
+|Blocs
+Clock => div:U1.CLK
+reset => Compteur:U2.RESET
+s <= div:U1.S
+q[0] <= Compteur:U2.Q[0]
+q[1] <= Compteur:U2.Q[1]
+q[2] <= Compteur:U2.Q[2]
+q[3] <= Compteur:U2.Q[3]
+af[0] <= aff:U3.Aff[0]
+af[1] <= aff:U3.Aff[1]
+af[2] <= aff:U3.Aff[2]
+af[3] <= aff:U3.Aff[3]
+af[4] <= aff:U3.Aff[4]
+af[5] <= aff:U3.Aff[5]
+af[6] <= aff:U3.Aff[6]
+
+
+|Blocs|div:U1
+CLK => reg[25].CLK
+CLK => reg[24].CLK
+CLK => reg[23].CLK
+CLK => reg[22].CLK
+CLK => reg[21].CLK
+CLK => reg[20].CLK
+CLK => reg[19].CLK
+CLK => reg[18].CLK
+CLK => reg[17].CLK
+CLK => reg[16].CLK
+CLK => reg[15].CLK
+CLK => reg[14].CLK
+CLK => reg[13].CLK
+CLK => reg[12].CLK
+CLK => reg[11].CLK
+CLK => reg[10].CLK
+CLK => reg[9].CLK
+CLK => reg[8].CLK
+CLK => reg[7].CLK
+CLK => reg[6].CLK
+CLK => reg[5].CLK
+CLK => reg[4].CLK
+CLK => reg[3].CLK
+CLK => reg[2].CLK
+CLK => reg[1].CLK
+CLK => reg[0].CLK
+CLK => Ssig.CLK
+S <= S~0
+
+
+|Blocs|Compteur:U2
+RESET => DIGIT_LSB[3].ACLR
+RESET => DIGIT_LSB[2].ACLR
+RESET => DIGIT_LSB[1].ACLR
+RESET => DIGIT_LSB[0].ACLR
+CLK => DIGIT_LSB[3].CLK
+CLK => DIGIT_LSB[2].CLK
+CLK => DIGIT_LSB[1].CLK
+CLK => DIGIT_LSB[0].CLK
+Q[0] <= Q~7
+Q[1] <= Q~6
+Q[2] <= Q~5
+Q[3] <= Q~4
+
+
+|Blocs|aff:U3
+Q[0] => Mux6.IN19
+Q[0] => Mux5.IN19
+Q[0] => Mux4.IN19
+Q[0] => Mux3.IN19
+Q[0] => Mux2.IN19
+Q[0] => Mux1.IN19
+Q[0] => Mux0.IN19
+Q[1] => Mux6.IN18
+Q[1] => Mux5.IN18
+Q[1] => Mux4.IN18
+Q[1] => Mux3.IN18
+Q[1] => Mux2.IN18
+Q[1] => Mux1.IN18
+Q[1] => Mux0.IN18
+Q[2] => Mux6.IN17
+Q[2] => Mux5.IN17
+Q[2] => Mux4.IN17
+Q[2] => Mux3.IN17
+Q[2] => Mux2.IN17
+Q[2] => Mux1.IN17
+Q[2] => Mux0.IN17
+Q[3] => Mux6.IN16
+Q[3] => Mux5.IN16
+Q[3] => Mux4.IN16
+Q[3] => Mux3.IN16
+Q[3] => Mux2.IN16
+Q[3] => Mux1.IN16
+Q[3] => Mux0.IN16
+Aff[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+Aff[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+Aff[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+Aff[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+Aff[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+Aff[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+Aff[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,5 @@
+|clock_div
+CLK => ~NO_FANOUT~
+RESET => ~NO_FANOUT~
+
+
